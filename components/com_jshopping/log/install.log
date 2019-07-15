@@ -1,0 +1,31 @@
+2019-01-07 22:12:23 
+Start install: C:\OSPanel\domains\Joomla_3.9.0\tmp\addon_jshopping_menu_builder_auto_2.1.8.zip IP:127.0.0.1 UID:127
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/controllers/addon_menu_builder.php
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/lang/addon_jshopping_menu_builder/de-DE.php
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/lang/addon_jshopping_menu_builder/en-GB.php
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/lang/addon_jshopping_menu_builder/ru-RU.php
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/models/addon_menu_builder.php
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/views/addon_menu_builder_edit/view.html.php
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/views/addon_menu_builder_edit/tmpl/edit.php
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/views/addon_menu_builder_edit/tmpl/index.html
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/views/addon_menu_builder_list/view.html.php
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/views/addon_menu_builder_list/tmpl/index.html
+2019-01-07 22:12:23 Copy file: /administrator/components/com_jshopping/views/addon_menu_builder_list/tmpl/list.php
+2019-01-07 22:12:23 Copy file: /administrator/language/de-DE/de-DE.com_jshopping_addon_menu_builder.ini
+2019-01-07 22:12:23 Copy file: /administrator/language/en-GB/en-GB.com_jshopping_addon_menu_builder.ini
+2019-01-07 22:12:23 Copy file: /administrator/language/ru-RU/ru-RU.com_jshopping_addon_menu_builder.ini
+2019-01-07 22:12:23 Copy file: /components/com_jshopping/addons/jshopping_menu_builder/index.html
+2019-01-07 22:12:23 Copy file: /components/com_jshopping/addons/jshopping_menu_builder/uninstall.php
+2019-01-07 22:12:23 Copy file: /plugins/jshoppingmenu/jshopping_menu_builder/jshopping_menu_builder.php
+2019-01-07 22:12:23 Copy file: /plugins/jshoppingmenu/jshopping_menu_builder/jshopping_menu_builder.xml
+2019-06-30 12:38:24 
+Start install: C:\OSPanel\domains\Joomla_3.9.0\tmp\addon_popup_after_added_to_cart1.0.01.zip IP:127.0.0.1 UID:127
+2019-06-30 12:38:24 Copy file: /components/com_jshopping/addons/addon_popup_after_added_to_cart/uninstall.php
+2019-06-30 12:38:24 Copy file: /components/com_jshopping/lang/addon_popup_after_added_to_cart/de-DE.php
+2019-06-30 12:38:24 Copy file: /components/com_jshopping/lang/addon_popup_after_added_to_cart/en-GB.php
+2019-06-30 12:38:24 Copy file: /components/com_jshopping/lang/addon_popup_after_added_to_cart/ru-RU.php
+2019-06-30 12:38:24 Copy file: /plugins/jshopping/addon_popup_after_added_to_cart/addon_popup_after_added_to_cart.php
+2019-06-30 12:38:24 Copy file: /plugins/jshopping/addon_popup_after_added_to_cart/addon_popup_after_added_to_cart.xml
+2019-06-30 12:38:24 Copy file: /plugins/jshopping/addon_popup_after_added_to_cart/css/default.css
+2019-06-30 12:38:24 Copy file: /plugins/jshopping/addon_popup_after_added_to_cart/images/delete-button.png
+2019-06-30 12:38:24 Copy file: /plugins/jshopping/addon_popup_after_added_to_cart/view/default.php
