@@ -22,13 +22,53 @@ table.list_product{
     background-color: #A9DEE5 !important;
 }
 
+
+.my_btn_styles {
+    min-width: 100%;
+    display: flex;
+    position: relative;
+}
+.btn-buy {
+    width: 60%;
+}
+.link-info {
+    width: 40%;
+}
+
+.info_svg {
+    width: 18px;
+    display: inline-block;
+    margin: 20px 0 0 40%; /* Пока жестко задала, надо будет переделать */    
+}
+
+.wrap-desc-product {
+    min-width: 100%;
+    display: flex;
+    position: relative;
+    margin-bottom: 30px;
+}
+.desc {
+    width: 50%;
+    padding-left: 8px;
+}
+.desc .description {
+    text-align: left !important;
+}
+.price {
+    width: 50%;
+    padding-right: 8px;
+}
+.price .jshop_price {
+    text-align: right !important;
+}
+
 img.jshop_img{
 	padding: 1px;
     text-align: center;
-    margin: auto;
+    margin: 0 auto 20px auto;
     object-fit: contain;
-    height: auto;
-    width: 200px;
+    height: 200px;
+    width: auto;
 }
 img.jshop_img_thumb{
 	padding: 0;
@@ -238,7 +278,7 @@ td.reviews{
     text-align: center;
     margin-top: 0;
     font-size: 16px;
-    min-height: 85px;
+    padding: 0 8px;
 }
 @media screen and (max-width: 768px){
 	.jshop_list_product .product .product_title{
@@ -316,11 +356,12 @@ td.reviews{
     border-radius: 10px !important;
 }
 .jshop_list_product .product .buttons{
-    padding-top:2px;
-    text-align: center;
+    text-align: left;
 }
 .jshop_list_product .product .buttons a {
     margin: 10px 0;
+    border-radius: 20px !important;
+    width: 100%;
 }
 .btn-success{
     background-color: #18bc34 !important;
@@ -780,8 +821,8 @@ span.prod_attr_img img{
 }
 /* -------------- Productfull Tabs */
 .productfull .nav-tabs > li > a {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    margin-bottom: 10px;
+    display: none;
 }
 .productfull .nav-tabs h3 {
     margin: 0;

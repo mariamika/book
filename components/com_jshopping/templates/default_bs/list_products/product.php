@@ -2,13 +2,6 @@
 <?php echo $product->_tmp_var_start?>
 <div class="<?php if ($this->count_product_to_row == 1) echo "one_in_row "; ?>product productitem_<?php echo $product->product_id?>">
 
-    <h2 class="product_title <?php if ($this->count_product_to_row == 1) echo "hidden"; ?>">
-        <a href="<?php echo $product->product_link?>"><?php echo $product->name?></a>
-        <?php if ($this->config->product_list_show_product_code){?>
-        <span class="jshop_code_prod">(<?php echo _JSHOP_EAN?>: <span><?php echo $product->product_ean;?></span>)</span>
-        <?php }?>
-    </h2>
-
     <?php if ($this->count_product_to_row == 1) echo "<div class='row-fluid'>"; ?>
 
     <div class="<?php if ($this->count_product_to_row == 1) echo "span4"; ?> image">
@@ -32,6 +25,13 @@
         <?php echo $product->_tmp_var_bottom_foto;?>
     </div>
 
+    <h2 class="product_title <?php if ($this->count_product_to_row == 1) echo "hidden"; ?>">
+        <a href="<?php echo $product->product_link?>"><?php echo $product->name?></a>
+        <?php if ($this->config->product_list_show_product_code){?>
+        <span class="jshop_code_prod">(<?php echo _JSHOP_EAN?>: <span><?php echo $product->product_ean;?></span>)</span>
+        <?php }?>
+    </h2>
+
     <div class="<?php if ($this->count_product_to_row == 1) echo "span6"; ?> mainblock">
 
         <?php if ($this->count_product_to_row == 1){ ?>
@@ -52,40 +52,46 @@
         </div>
         <?php }?>
 
-        <div class="jshop_price_block">
-            <?php if ($product->_display_price){?>
-                <div class="jshop_price"><?php if ($this->config->product_list_show_price_description) echo _JSHOP_PRICE.": ";?>
-                    <?php if ($product->show_price_from) echo _JSHOP_FROM." ";?>
-                    <span><?php echo formatprice($product->product_price);?></span>
+        <div class="wrap-desc-product">
+            <div class="desc">
+                <?php if (is_array($product->extra_field)){?>
+                    <ul class="unstyled extra_fields">
+                    <?php foreach($product->extra_field as $extra_field){?>
+                        <li>
+                            <span class="text-right extra_fields_name"><?php echo $extra_field['name'];?>:</span>
+                            <span class="text-left extra_fields_value">&nbsp;&nbsp;<?php echo $extra_field['value']; ?></span>
+                        </li>
+                    <?php }?>
+                    </ul>
+                <?php }?>
+                <div class="description">
+                    <?php echo $product->short_description?>
                 </div>
-            <?php }?>
-            <?php echo $product->_tmp_var_bottom_price;?>
-            <?php if ($product->product_old_price > 0){?>
-                <div class="old_price"><?php if ($this->config->product_list_show_price_description) echo _JSHOP_OLD_PRICE.": ";?>
-                    <span><?php echo formatprice($product->product_old_price)?></span>
+            </div>
+            <div class="price">
+                <div class="jshop_price_block">
+                    <?php if ($product->_display_price){?>
+                        <div class="jshop_price"><?php if ($this->config->product_list_show_price_description) echo _JSHOP_PRICE.": ";?>
+                            <?php if ($product->show_price_from) echo _JSHOP_FROM." ";?>
+                            <span><?php echo formatprice($product->product_price);?></span>
+                        </div>
+                    <?php }?>
+                    <?php echo $product->_tmp_var_bottom_price;?>
+                    <?php if ($product->product_old_price > 0){?>
+                        <div class="old_price"><?php if ($this->config->product_list_show_price_description) echo _JSHOP_OLD_PRICE.": ";?>
+                            <span><?php echo formatprice($product->product_old_price)?></span>
+                        </div>
+                    <?php }?>
+                    <?php print $product->_tmp_var_bottom_old_price;?>
                 </div>
-            <?php }?>
-            <?php print $product->_tmp_var_bottom_old_price;?>
+            </div>
         </div>
         
         <?php if ($product->manufacturer->name){?>
             <div class="manufacturer_name"><?php echo _JSHOP_MANUFACTURER?>: <span><?php echo $product->manufacturer->name?></span></div>
         <?php }?>
 
-        <?php if (is_array($product->extra_field)){?>
-            <ul class="unstyled extra_fields">
-            <?php foreach($product->extra_field as $extra_field){?>
-                <li>
-                    <span class="text-right extra_fields_name"><?php echo $extra_field['name'];?>:</span>
-                    <span class="text-left extra_fields_value">&nbsp;&nbsp;<?php echo $extra_field['value']; ?></span>
-                </li>
-            <?php }?>
-            </ul>
-        <?php }?>
-
-        <div class="description">
-            <?php echo $product->short_description?>
-        </div>
+        
 
         <?php if ($product->product_quantity <=0 && !$this->config->hide_text_product_not_available){?>
             <div class="not_available"><?php echo _JSHOP_PRODUCT_NOT_AVAILABLE?></div>
@@ -120,12 +126,16 @@
         
     </div>
         <?php echo $product->_tmp_var_top_buttons;?>
-        <div class="buttons">
-            <?php if ($product->buy_link){?>
-            <a class="btn btn-success button_buy" href="<?php echo $product->buy_link?>"><?php echo _JSHOP_BUY?></a> &nbsp;
-            <?php }?>
-            <a class="btn btn-info button_detail" href="<?php echo $product->product_link?>"><?php echo _JSHOP_DETAIL?></a>
-            <?php echo $product->_tmp_var_buttons;?>
+        <div class="buttons my_btn_styles">
+            <div class="btn-buy">
+                <?php if ($product->buy_link){?>
+                    <a class="btn btn-success button_buy" href="<?php echo $product->buy_link?>"><?php echo _JSHOP_BUY?></a> &nbsp;
+                <?php }?>
+            </div>
+            <div class="link-info">
+                    <a href="<?php echo $product->product_link?>"><img src="<?php print_r($this->config->live_path);?>images/info.svg" alt="info" class="info_svg"/></a>
+                <?php echo $product->_tmp_var_buttons;?>
+            </div>
         </div>
         <?php echo $product->_tmp_var_bottom_buttons;?>
 

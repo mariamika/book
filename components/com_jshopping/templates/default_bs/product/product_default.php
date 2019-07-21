@@ -298,7 +298,7 @@ $productPriceValue = number_format($this->product->getPriceCalculate(), $jshopCo
                     <?php echo _JSHOP_QUANTITY?>:&nbsp;
                 </div>
                 <div class="prod_qty_input">
-                    <input type="text" name="quantity" id="quantity" onkeyup="reloadPrices();" class="inputbox" value="<?php print $this->default_count_product?>" /><?php print $this->_tmp_qty_unit;?>
+                    <input type="text" name="quantity" id="quantity" onkeyup="reloadPrices();" class="inputbox" disabled value="<?php print $this->default_count_product?>" /><?php print $this->_tmp_qty_unit;?>
                 </div>                         
                 <div class="prod_buttons" style="<?php print $this->displaybuttons?>">
                     <input type="submit" class="btn btn-success buy" value="<?php echo _JSHOP_ADD_TO_CART?>" onclick="jQuery('#to').val('cart');" />
