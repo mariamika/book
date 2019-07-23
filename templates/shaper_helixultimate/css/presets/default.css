@@ -6,16 +6,16 @@
  */
 body, .sp-preloader {
   background-color: #fff;
-  color: #1c1b1b;
+  color: #252525;
 }
 .sp-preloader > div {
-  background: #2e545d;
+  background: #2f2f63;
 }
 .sp-preloader > div:after {
   background: #fff;
 }
 #sp-top-bar {
-  background: #333;
+  background: #252525;
   color: #aaa;
 }
 #sp-top-bar a {
@@ -25,42 +25,42 @@ body, .sp-preloader {
   background: #fff;
 }
 a {
-  color: #2e545d;
+  color: #2f2f63;
 }
 a:hover, a:focus, a:active {
-  color: #f6871f;
+  color: #f46140;
 }
 .tags > li {
   display: inline-block;
 }
 .tags > li a {
-  background: rgba(46, 84, 93, 0.1);
-  color: #2e545d;
+  background: rgba(47, 47, 99, 0.1);
+  color: #2f2f63;
 }
 .tags > li a:hover {
-  background: #f6871f;
+  background: #f46140;
 }
 .article-social-share .social-share-icon ul li a {
-  color: #1c1b1b;
+  color: #252525;
 }
 .article-social-share .social-share-icon ul li a:hover, .article-social-share .social-share-icon ul li a:focus {
-  background: #2e545d;
+  background: #2f2f63;
 }
 .pager > li a {
   border: 1px solid #ededed;
-  color: #1c1b1b;
+  color: #252525;
 }
 .sp-reading-progress-bar {
-  background-color: #2e545d;
+  background-color: #2f2f63;
 }
 .sp-megamenu-parent > li > a {
   color: #252525;
 }
 .sp-megamenu-parent > li:hover > a {
-  color: #f6871f;
+  color: #f46140;
 }
 .sp-megamenu-parent > li.active > a, .sp-megamenu-parent > li.active:hover > a {
-  color: #2e545d;
+  color: #2f2f63;
 }
 .sp-megamenu-parent .sp-dropdown .sp-dropdown-inner {
   background: #fff;
@@ -69,10 +69,10 @@ a:hover, a:focus, a:active {
   color: #252525;
 }
 .sp-megamenu-parent .sp-dropdown li.sp-menu-item > a:hover {
-  color: #f68e13;
+  color: #f46140;
 }
 .sp-megamenu-parent .sp-dropdown li.sp-menu-item.active > a {
-  color: #2e545d;
+  color: #2f2f63;
 }
 .sp-megamenu-parent .sp-mega-group > li > a {
   color: #252525;
@@ -81,7 +81,7 @@ a:hover, a:focus, a:active {
   color: #252525;
 }
 #offcanvas-toggler > .fa:hover, #offcanvas-toggler > .fa:focus, #offcanvas-toggler > .fa:active {
-  color: #f6871f;
+  color: #f46140;
 }
 .offcanvas-menu {
   background-color: #fff;
@@ -91,7 +91,7 @@ a:hover, a:focus, a:active {
   color: #252525;
 }
 .offcanvas-menu .offcanvas-inner .sp-module ul > li a:hover, .offcanvas-menu .offcanvas-inner .sp-module ul > li span:hover, .offcanvas-menu .offcanvas-inner .sp-module ul > li a:focus, .offcanvas-menu .offcanvas-inner .sp-module ul > li span:focus {
-  color: #f68e13;
+  color: #f46140;
 }
 .offcanvas-menu .offcanvas-inner .sp-module ul > li.menu-parent > a > .menu-toggler, .offcanvas-menu .offcanvas-inner .sp-module ul > li.menu-parent > .menu-separator > .menu-toggler {
   color: rgba(37, 37, 37, 0.5);
@@ -100,39 +100,39 @@ a:hover, a:focus, a:active {
   color: rgba(37, 37, 37, 0.8);
 }
 .btn-primary, .sppb-btn-primary {
-  border-color: #2e545d;
-  background-color: #2e545d;
+  border-color: #2f2f63;
+  background-color: #2f2f63;
 }
 .btn-primary:hover, .sppb-btn-primary:hover {
-  border-color: #f6871f;
-  background-color: #f6871f;
+  border-color: #f46140;
+  background-color: #f46140;
 }
 ul.social-icons > li a:hover {
-  color: #2e545d;
+  color: #2f2f63;
 }
 .sp-page-title {
-  background: #2e545d;
+  background: #2f2f63;
 }
 .layout-boxed .body-innerwrapper {
   background: #fff;
 }
 .sp-module ul > li > a {
-  color: #1c1b1b;
+  color: #252525;
 }
 .sp-module ul > li > a:hover {
-  color: #2e545d;
+  color: #2f2f63;
 }
 .sp-module .latestnews > div > a {
-  color: #1c1b1b;
+  color: #252525;
 }
 .sp-module .latestnews > div > a:hover {
-  color: #2e545d;
+  color: #2f2f63;
 }
 .sp-module .tagscloud .tag-name:hover {
-  background: #2e545d;
+  background: #2f2f63;
 }
 .search .btn-toolbar button {
-  background: #2e545d;
+  background: #2f2f63;
 }
 #sp-footer, #sp-bottom {
   background: #252525;
@@ -148,22 +148,22 @@ ul.social-icons > li a:hover {
   color: #fff;
 }
 .sp-comingsoon body {
-  background-color: #2e545d;
+  background-color: #2f2f63;
 }
 .pagination > li > a, .pagination > li > span {
-  color: #1c1b1b;
+  color: #252525;
 }
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
-  color: #1c1b1b;
+  color: #252525;
 }
 .pagination > .active > a, .pagination > .active > span {
-  border-color: #2e545d;
-  background-color: #2e545d;
+  border-color: #2f2f63;
+  background-color: #2f2f63;
 }
 .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-  border-color: #2e545d;
-  background-color: #2e545d;
+  border-color: #2f2f63;
+  background-color: #2f2f63;
 }
 .error-code, .coming-soon-number {
-  color: #2e545d;
+  color: #2f2f63;
 }

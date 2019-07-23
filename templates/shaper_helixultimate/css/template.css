@@ -337,20 +337,20 @@ ul.social-icons > li {
   margin: 0 0 1.25rem 0;
 }
 .article-list .article .article-header h1 a, .article-list .article .article-header h2 a {
-  color: #1c1b1b;
+  color: #252525;
 }
 .article-list .article .article-header h1 a:hover, .article-list .article .article-header h2 a:hover, .article-list .article .article-header h1 a:active, .article-list .article .article-header h2 a:active, .article-list .article .article-header h1 a:focus, .article-list .article .article-header h2 a:focus {
-  color: #f6871f;
+  color: #f46140;
 }
 .article-list .article .readmore {
   font-size: 0.875rem;
 }
 .article-list .article .readmore a {
-  color: #1c1b1b;
+  color: #252525;
   font-weight: 500;
 }
 .article-list .article .readmore a:hover, .article-list .article .readmore a:active, .article-list .article .readmore a:focus {
-  color: #f6871f;
+  color: #f46140;
 }
 .article-info {
   display: -webkit-box;
@@ -370,10 +370,10 @@ ul.social-icons > li {
   content: "/";
 }
 .article-info > span a {
-  color: #1c1b1b;
+  color: #252525;
 }
 .article-info > span a:hover {
-  color: #f6871f;
+  color: #f46140;
 }
 .article-details .article-header {
   position: relative;
