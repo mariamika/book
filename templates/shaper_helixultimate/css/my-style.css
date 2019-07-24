@@ -141,6 +141,7 @@
 #sp-main-body {
     width: 100%;
     margin-top: 161px;
+    min-height: 75vh;
 }
 /* фиксация верхней информационной строки */
 #sp-inform-top {

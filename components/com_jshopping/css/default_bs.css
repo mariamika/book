@@ -414,8 +414,9 @@ td.reviews{
 .jshop_list_product .box_products_sorting img{
     cursor: pointer;
     display: inline-block;
-
-margin-left: 5px;
+    margin-left: 5px;
+    height: 22px;
+    margin-bottom: 8px;
 }
 .jshop_list_product .margin_filter{
     height:8px;
