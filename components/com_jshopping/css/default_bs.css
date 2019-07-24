@@ -37,8 +37,9 @@ table.list_product{
 
 .info_svg {
     width: 18px;
-    display: inline-block;
-    margin: 20px 0 0 40%; /* Пока жестко задала, надо будет переделать */    
+    display: block;
+    float: right;
+    margin: 20px 8px 0 0;
 }
 
 .wrap-desc-product {
@@ -364,12 +365,16 @@ td.reviews{
     width: 100%;
 }
 .btn-success{
-    background-color: #18bc34 !important;
-    border-color: #18bc34 !important;
+    background-color: #fff !important;
+    border-color: #f46140 !important;
+    border-radius: 20px !important;
+    width: 180px;
+    color: #f46140 !important;
 }
 .btn-success:hover{
-    background-color: #087a1c !important;
-    border-color: #087a1c !important;
+    background-color: #f46140 !important;
+    border-color: #f46140 !important;
+    color: #fff !important;
 }
 .btn-info{
     background-color: #2546a6 !important;
@@ -727,8 +732,8 @@ span.prod_attr_img img{
     display: inline-flex;
     margin-left: 70px;
 }
-.productfull > form .span7 > .product_price_block {
-    color: #B94840;
+.productfull > form .span7 > .product_price_block #block_price {
+    color: #f46140;
 }
 .productfull #block_price{
     font-size:16px;
@@ -802,6 +807,8 @@ span.prod_attr_img img{
 #list_product_image_middle > a > img {
     min-height: 250px;
     min-width: 250px;
+    border-radius: 15px;
+    margin-bottom: 50px;
 }
 .productfull .text_zoom {
     display: none;

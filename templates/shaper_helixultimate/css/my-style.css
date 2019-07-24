@@ -20,6 +20,10 @@
     clear: none;
 }
 
+.sp-module ul > li > a:hover {
+    color: #f46140 !important;
+}
+
 .first-menu a{
     text-decoration: none;
 }
@@ -166,7 +170,7 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 
 /* стиль для ссылок в мега меню Наши услуги*/
 .my-mega .sp-mega-group > li > a:hover{
-    color: #f6871f;
+    color: #f46140;
 }
 
 /* Скрыла пока кнопку Изменить для всех материалов на сайте */
