@@ -9,14 +9,17 @@
 <div class = "jshop list_category">
     <?php foreach($this->categories as $k=>$category){?>
         <?php if ($k%$this->count_category_to_row==0) echo '<div class="nvg_clear"></div><div class="row-fluid str_category">'; ?>
-        <div class="span<?php echo round(12/$this->count_category_to_row, 0)?> jshop_categ">
+        <div class="span<?php echo round(12/$this->count_category_to_row, 0)?> jshop_categ wrap_categ">
 
           <div class="category">
-            <h2 class="category_title"><a class = "product_link" href = "<?php echo $category->category_link?>"><?php echo $category->name?></a></h2>
             <div class="image">
-              <a href = "<?php echo $category->category_link;?>"><img class="jshop_img" src="<?php echo $this->image_category_path;?>/<?php if ($category->category_image) echo $category->category_image; else echo $this->noimage;?>" alt="<?php echo htmlspecialchars($category->name)?>" title="<?php echo htmlspecialchars($category->name)?>" /></a>
+              <a href = "<?php echo $category->category_link;?>">
+                <img class="jshop_img my_categ" 
+                  src="<?php print_r($this->config->live_path);?>/images/book.svg" 
+                  alt="category"  />
+              </a>
             </div>
-            <p class = "category_short_description"><?php echo $category->short_description?></p>
+            <h2 class="category_title"><a class = "product_link" href = "<?php echo $category->category_link?>"><?php echo $category->name?></a></h2>
           </div>
  
         </div>    

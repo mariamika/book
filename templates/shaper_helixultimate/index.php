@@ -8,8 +8,10 @@
 
 $doc = JFactory::getDocument();
 $baseUrl = JUri::base();
+
 //Подключаем свои стили
 JHtml::_('stylesheet', $baseUrl.'templates/'.$this->template.'/css/my-style.css');
+
 
 defined ('_JEXEC') or die();
 
@@ -173,5 +175,7 @@ if ($custom_js = $this->params->get('custom_js'))
     <?php if( $app->input->get('view') == 'article' && $this->params->get('reading_time_progress', 0) ): ?>
         <div data-position="<?php echo $progress_bar_position; ?>" class="sp-reading-progress-bar"></div>
     <?php endif; ?>
+
+    <script type="text/javascript" src="<?php echo $baseUrl?>components/com_jshopping/js/jquery/jquery.lightbox.js"></script>
     </body>
 </html>

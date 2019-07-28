@@ -358,7 +358,7 @@ define('_JSHOP_PRICE_FOR_QTY', 'Цены');
 define('_JSHOP_PER_PIECE', 'за штуку');
 define('_JSHOP_SELECT_PRODUCT_OPTIONS', 'Пожалуйста выберите параметры');
 define('_JSHOP_ERROR_EXIST_QTY_PRODUCT', 'Товар невозможно заказать в данном количестве<br/>Максимальное количество заказа %s.');
-define('_JSHOP_ERROR_EXIST_QTY_PRODUCT_IN_CART', 'Товар невозможно заказать в данном количестве<br/>Корзина уже содержит %s наименований товара.<br/>Максимальное количество заказа %s.');
+define('_JSHOP_ERROR_EXIST_QTY_PRODUCT_IN_CART', 'Товар невозможно заказать в данном количестве<br/>Корзина уже содержит %s наименований товара.<br/>');
 define('_JSHOP_ERROR_EXIST_QTY_PRODUCT_BASKET', 'Для товара "%s" максимальное количество заказа %s.');
 define('_JSHOP_BUY', 'ЗАКАЗАТЬ');
 define('_JSHOP_PRODUCT_NOT_AVAILABLE', 'Нет в наличии');

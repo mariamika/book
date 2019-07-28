@@ -3,6 +3,16 @@
 display: none;
 visibility: hidden;
 }
+.jshop_prod_description ul {
+    list-style: none !important;
+    margin-left: -35px !important;
+}
+.my_categ {
+    height: 60px !important;
+}
+.wrap_categ {
+    min-height: 70px !important;
+}
 b.jshop h1{
     margin-top: 0px;
     font-size:16px;
@@ -19,27 +29,35 @@ table.list_product{
 }
 /* Цвет у сообщений */
 .alert-success {
-    background-color: #A9DEE5 !important;
+    color: #292973 !important;
+    background-color: #b6b6d8 !important;
+    border-color: #b6b6d8 !important;
 }
-
-
+.box_products_sorting {
+    width: 70% !important;
+    min-height: 40px !important;
+}
+.box_products_count_to_page{
+    width: 29% !important;
+    min-height: 40px !important;
+}
 .my_btn_styles {
-    min-width: 100%;
+    min-width: 60%;
     display: flex;
     position: relative;
 }
 .btn-buy {
-    width: 60%;
+    width: 35%;
 }
 .link-info {
-    width: 40%;
+    width: 65%;
 }
 
 .info_svg {
     width: 18px;
     display: block;
     float: right;
-    margin: 20px 8px 0 0;
+    margin: 10px 8px 0 0;
 }
 
 .wrap-desc-product {
@@ -49,6 +67,7 @@ table.list_product{
     margin-bottom: 30px;
 }
 .desc {
+    display: none;
     width: 50%;
     padding-left: 8px;
 }
@@ -56,8 +75,9 @@ table.list_product{
     text-align: left !important;
 }
 .price {
-    width: 50%;
+    /*width: 50%;*/
     padding-right: 8px;
+    padding-left: 8px;
 }
 .price .jshop_price {
     text-align: right !important;
@@ -66,7 +86,7 @@ table.list_product{
 img.jshop_img{
 	padding: 1px;
     text-align: center;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 0 auto;
     object-fit: contain;
     height: 200px;
     width: auto;
@@ -200,8 +220,6 @@ td.reviews{
 
 .jshophead{display:inline-block;}
 
-.str_category {}
-
 .jshop_code_prod{
     color: #999;
     font-weight: normal;
@@ -238,8 +256,6 @@ td.reviews{
 .jshop .list_product_demo{
     padding-top:10px;
 }
-.jshop .list_product_demo table{
-}
 .jshop .list_product_demo .download{
     padding-left:5px;
 }
@@ -251,9 +267,6 @@ td.reviews{
 /* =================================================== LIST PRODUCT VIEW */
 .jshop_list_product .block_product {
     margin-bottom: 20px;
-}
-.jshop_list_product .jshop_price_block {
-    margin: 10px 0;
 }
 .jshop_list_product .jshop .jshop_price{
     text-align: center;
@@ -294,7 +307,7 @@ td.reviews{
     padding: 0;
 }
 .jshop_list_product .product .product_title a{
-    font-size: 1.07rem;
+    font-size: 1.2rem;
 }
 .jshop_list_product .product .mainblock .jshop_price {
     font-size: 1.3rem;
@@ -312,6 +325,9 @@ td.reviews{
 }
 .sp-megamenu-parent .sp-dropdown .sp-dropdown-inner {
     background: #fffaf0 !important;
+}
+.sp-megamenu-parent > li.active > a, .sp-megamenu-parent > li.active:hover > a {
+    text-shadow: rgba(126, 126, 177, 0.5) 0 1px 1px;
 }
 .my-mega .sp-mega-group > li:first-of-type > a {
     padding-top: 12px;
@@ -360,18 +376,29 @@ td.reviews{
     text-align: left;
 }
 .jshop_list_product .product .buttons a {
-    margin: 10px 0;
     border-radius: 20px !important;
     width: 100%;
 }
 .btn-success{
     background-color: #fff !important;
-    border-color: #f46140 !important;
+    border-color: #252525 !important;
     border-radius: 20px !important;
     width: 180px;
-    color: #f46140 !important;
+    color: #252525 !important;
 }
 .btn-success:hover{
+    background-color: #f46140 !important;
+    border-color: #f46140 !important;
+    color: #fff !important;
+}
+.btn-success:focus{
+    box-shadow: inset 1px -2px #d94827 !important;
+    background-color: #f46140 !important;
+    border-color: #f46140 !important;
+    color: #fff !important;
+}
+.btn:focus {
+    box-shadow: inset 1px -2px #d94827 !important;
     background-color: #f46140 !important;
     border-color: #f46140 !important;
     color: #fff !important;
@@ -442,11 +469,11 @@ td.reviews{
 }
 
 /* -------- If one product in row */
-.jshop_list_product .one_in_row {}
 .jshop_list_product .one_in_row .product_title {
     text-align: left;
     margin-top: 0;
     font-size: 16px;
+    height: auto !important;
 }
 .jshop_list_product .one_in_row .review_mark {
     margin-bottom: 10px;
@@ -498,7 +525,7 @@ td.reviews{
     vertical-align: top;
 }
 .jshop_list_category .category .image{
-    padding-right: 0px;
+    width: 10%;
 }
 
 .jshop_list_manufacturer .manufacturer td{
@@ -513,8 +540,7 @@ td.reviews{
     margin-top:5px;
     border: 1px solid #000;
 }
-.shipping_weight_to_price .weight{
-}
+
 .shipping_weight_to_price .price{
     padding-left: 5px;
 }
@@ -541,9 +567,7 @@ span.prod_attr_img img{
 .review_user{
     font-weight:bold;
 }
-.review_time{
-    
-}
+
 .review_text{
     padding-top: 2px;
     padding-bottom: 2px;
@@ -723,15 +747,10 @@ span.prod_attr_img img{
     font-size: 1.5rem;
 }
 .productfull > form .span7 > .prod_qty {
-    display: inline-block;
-}
-.productfull .prod_qty_input {
-    display: inline-flex !important;
-    width: 35px !important;
+    display: none;
 }
 .productfull > form .span7 > .prod_buttons {
     display: inline-flex;
-    margin-left: 70px;
 }
 .productfull > form .span7 > .product_price_block #block_price {
     color: #f46140;
@@ -758,7 +777,7 @@ span.prod_attr_img img{
 }
 .productfull .prod_qty,
 .productfull .prod_qty_input {
-    display: inline;
+    display: none;
 }
 .prod_qty_input {
     width: 1%;
@@ -808,7 +827,6 @@ span.prod_attr_img img{
 #list_product_image_middle > a > img {
     min-height: 250px;
     min-width: 250px;
-    border-radius: 15px;
     margin-bottom: 50px;
 }
 .productfull .text_zoom {
@@ -867,9 +885,6 @@ div.list_related{
     display: inline-block;
     width: 115px;
 }
-.productfull .review_mark .stars_no_active {
-  /*  margin: 0;*/
-}
 
 /*==================================================== END PRODUCT FULL VIEW */
 
@@ -884,7 +899,6 @@ div.list_related{
     margin-bottom: 20px;
 }
 
-.register_block .jshop_register .name{}
 
 .address_block .jshop_register .name{
     width:115px;
@@ -903,9 +917,6 @@ div.list_related{
 .jshop_register .inputbox{
     width: 225px;
 }
-
-#username label,
-#password label {}
 
 #username,
 #password,
@@ -968,7 +979,7 @@ div.rabatt { margin-top: 20px; }
 
 .jshop_list_category>.jshop div[class*="span"] {
     margin: 0;
-    padding: 0 15px 15px 0;
+    padding: 0 0 15px 0;
 }
 
 .jshop.list_product {
@@ -991,6 +1002,7 @@ div.rabatt { margin-top: 20px; }
 	padding: 5px;
     border: 1px solid #dcdcdc;
     border-radius: 5px;	
+    display: flex;
 }
 
 /************************** list category ********************/
@@ -1003,7 +1015,6 @@ div.rabatt { margin-top: 20px; }
 
 /*==================================================== JSHOP CART */
 
-.list_attribute {}
 .list_extra_field {
     padding-top:3px;
 }
@@ -1026,8 +1037,6 @@ div.rabatt { margin-top: 20px; }
  	margin: 20px 0 20px 0;
     text-align: right;
 }
-
-table.cart {}
 
 caption {
 	display: table-caption;
@@ -1081,7 +1090,7 @@ table.cart tfoot {
 }
 
 .jshop_cart_prod_delete {
-    //position: absolute;
+    /*position: absolute;*/
     bottom: 0;
     right: 0;
     padding: 5px;
@@ -1112,7 +1121,7 @@ table.cart tfoot {
     margin-right:10px;
     font-size:14px;
     font-weight:normal;
-    // color:#950000;
+    /* color:#950000;*/
 }
 .jshop_order_step a {
     vertical-align: top;
@@ -1127,18 +1136,13 @@ table.cart tfoot {
 }
 
 /*--------------------- Payments Step */
-.payments {}
-.table_payments {}
 .padiv {padding:5px 0;}
 
 /*--------------------- Shippings Step */
 .table_shippings {
     margin-bottom: 20px;
 }
-.shipping_descr {}
-
 /*--------------------- Prevfinish Step */
-.prevfinish_info {}
 .prevfinishjshop {
     text-align: center;
     width: auto;
@@ -1149,7 +1153,6 @@ table.cart tfoot {
     width: 90%;
     min-height: 100px;
 }
-.row_agb {}
 .policy {
     text-transform: uppercase;
     color: #000000;
@@ -1165,9 +1168,6 @@ table.cart tfoot {
     text-align: center;
     text-transform: uppercase;
 }
-
-.order_finish{}
-
 
 /*==================================================== END JSHOP CHECKOUT */
 
@@ -1189,14 +1189,11 @@ div.jshop_img_description_center {
 }
  
 /* ----------SEARCH -------------------------------------------- */
-.js_search_gen {}
 .js_search_gen  > div { margin:15px 0; }
-.js_serch_text {}
 .js_name { font-weight:bold; }
 .js_field{margin:0 15px;}
 .js_field input{-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px; height:18px;border:1px solid #CCCCCC;}
 .js_search_price{margin:15px 0;}
-.js_search_price {}
 .js_search_date{margin:15px 0;}
 #jshop_search + input.btn{
 	height: 30px;
@@ -1245,7 +1242,6 @@ table.order_history td{
 	padding-top:3px;
 }
 .order_info_N {margin-left: 20px;}
-.order_info_status {}
 .order_info {float:right;min-height: 70px;}
 .order_info_products{float:left;}
 .order_href_details{padding:5px 10px; color:#ffffff; text-decoration:none;}
@@ -1254,8 +1250,6 @@ table.order_history td{
 .jshop_name {font-size:14px; font-weight:bold;}
 
 .finish_registr {text-align:center;padding-top:3px;}
-
-.mainblock {}
 
 #order_summary_user_data td.width50 {
 	padding: 3px;
@@ -1370,7 +1364,7 @@ text-align: left !important;
 }
 
 .checkout_otstup {
-margin: 5% 5% 0 2%;"
+margin: 5% 5% 0 2%;
 
 }
 
@@ -1617,10 +1611,7 @@ text-decoration: line-through;
  .row-fluid .span3.jshop_categ {
     width: 24.428%;
  }
- .row-fluid .span4.block_product,
- .row-fluid .span4.jshop_categ {
-    
- }
+
  .prod_buttons .buttons .btn {
     padding: 7px;
  }
@@ -1751,7 +1742,7 @@ text-decoration: line-through;
   .row-fluid [class*="span"] {
     display: block;
     width: 100%;
-    min-height: 30px;
+    min-height: 162px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -1762,8 +1753,7 @@ text-decoration: line-through;
     margin-left: 5px;
   }
   .row-fluid .span12 {
-    width: 98.9%;
-    *width: 99.9468085106%;
+    width: 100%;
   }
   .row-fluid .span11 {
     width: 91.4364640884%;
@@ -1786,15 +1776,14 @@ text-decoration: line-through;
     *width: 57.1291289526%;
   }
   .row-fluid .span6 {
-    width: 48.6187845304%;
-    *width: 48.565593041%;
+    width: 60%;
   }
   .row-fluid .span5 {
     width: 40.0552486188%;
     *width: 40.0020571294%;
   }
   .row-fluid .span4 {
-    width: 32.0117%;
+    width: 34%;
     *width: 31.4385212178%;
   }
   .row-fluid .span4.block_product {

@@ -129,7 +129,7 @@
         <div class="buttons my_btn_styles">
             <div class="btn-buy">
                 <?php if ($product->buy_link){?>
-                    <a class="btn btn-success button_buy" href="<?php echo $product->buy_link?>"><?php echo _JSHOP_BUY?></a> &nbsp;
+                    <a class="btn btn-success button_buy" href="<?php echo $product->buy_link?>"><?php echo _JSHOP_BUY?></a>
                 <?php }?>
             </div>
             <div class="link-info">
