@@ -40,7 +40,7 @@
   	<tr class = "jshop_prod_cart <?php if ($i%2==0) print "even"; else print "odd"?>">
   		
         <td class="remove" headers="remove" style="text-align:center" >
-      		<a href="<?php print $prod['href_delete'] ?>" onclick="return confirm('<?php echo _JSHOP_REMOVE?>')"><img src = "<?php print $this->image_path ?>images/bs/remove.png" alt = "<?php echo _JSHOP_DELETE?>" title = "<?php echo _JSHOP_DELETE?>" />
+      		<a class="remove" href="<?php print $prod['href_delete'] ?>" onclick="return confirm('<?php echo _JSHOP_REMOVE?>')"><img src = "<?php print $this->image_path ?>images/bs/remove.svg" alt = "<?php echo _JSHOP_DELETE?>" title = "<?php echo _JSHOP_DELETE?>" />
             
               </a>
     	</td>
@@ -178,7 +178,7 @@
 
 <div class="checkout" id="checkout">
       <div class="btn-group">
-        <a class="btn" href="<?php echo $this->href_shop ?>">
+        <a class="btn back_to_shop" href="<?php echo $this->href_shop ?>">
         <i class="icon-arrow-left"></i>
         <?php print _JSHOP_BACK_TO_SHOP ?>
         </a>

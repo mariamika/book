@@ -64,7 +64,7 @@ define('_JSHOP_LOGOUT', 'Выйти');
 define('_JSHOP_MANUFACTURER', 'Производитель');
 define('_JSHOP_CATEGORY', 'Категория');
 define('_JSHOP_ACCESS_DENIED', 'Доступ запрещен');
-define('_JSHOP_REQUIRED', 'Обязательный');
+define('_JSHOP_REQUIRED', 'Обязательно к заполнению');
 define('_JSHOP_BACK', 'Назад');
 define('_JSHOP_DELETE', 'Удалить');
 define('_JSHOP_CONFIRM_REMOVE', 'Действительно удалить?');

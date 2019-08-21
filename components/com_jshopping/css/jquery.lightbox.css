@@ -44,7 +44,7 @@
 #lightbox-loading {
 	position: absolute;
 	top: 40%;
-	left: 0%;
+	left: 45%;
 	height: 25%;
 	width: 100%;
 	text-align: center;
@@ -76,15 +76,14 @@
 }
 #lightbox-container-image-data-box {
 	font: 10px Verdana, Helvetica, sans-serif;
-	background-color: #fff;
+	/*background-color: #fff;*/
 	margin: 0 auto;
 	line-height: 1.4em;
 	overflow: auto;
 	width: 100%;
-	padding: 0 10px 0;
+	/*padding: 0 23vw 0 0;*/
 }
 #lightbox-container-image-data {
-	padding: 0 10px; 
 	color: #666; 
 }
 #lightbox-container-image-data #lightbox-image-details { 

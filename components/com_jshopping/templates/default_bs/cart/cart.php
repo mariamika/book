@@ -65,7 +65,7 @@
               <?php }?>
           </td>
           <td style="text-align:center">
-            <a href="<?php print $prod['href_delete']?>" onclick="return confirm('<?php print _JSHOP_CONFIRM_REMOVE?>')"><img src = "<?php print $this->image_path ?>images/bs/remove.png" alt = "<?php print _JSHOP_DELETE?>" title = "<?php print _JSHOP_DELETE?>" /></a>
+            <a class="remove" href="<?php print $prod['href_delete']?>" onclick="return confirm('<?php print _JSHOP_CONFIRM_REMOVE?>')"><img src = "<?php print $this->image_path ?>images/bs/remove.svg" alt = "<?php print _JSHOP_DELETE?>" title = "<?php print _JSHOP_DELETE?>" /></a>
           </td>
         </tr>
         <?php 
@@ -194,7 +194,7 @@
 
     <div class="checkout" id="checkout">
       <div class="btn-group">
-        <a class="btn" href="<?php print $this->href_shop ?>">
+        <a class="btn back_to_shop" href="<?php print $this->href_shop ?>">
         <i class="icon-arrow-left"></i>
         <?php print _JSHOP_BACK_TO_SHOP ?>
         </a>

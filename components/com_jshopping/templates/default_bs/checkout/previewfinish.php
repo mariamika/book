@@ -1,6 +1,6 @@
 <?php defined( '_JEXEC' ) or die(); ?>
 
-<h2 style="margin-bottom:15px;" >Подтвердите ваш заказ</h2>
+<h2 style="margin-bottom:15px;" >Оформление заказа</h2>
 <?php print $this->checkout_navigator?>
 <?php print $this->small_cart?>
 <div class="jshop prevfinish_info">

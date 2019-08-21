@@ -48,7 +48,7 @@ define('_JSHOP_SORT', 'Сортировка');
 define('_JSHOP_PRICE','Цена');
 define('_JSHOP_KEY','Ключ');
 define('_JSHOP_UNLIMITED','Неограничено');
-define('_JSHOP_REQUIRED','Обязательный');
+define('_JSHOP_REQUIRED','Обязательно к заполнению');
 
 define('_JSHOP_SELECT','Выберите');
 define('_JSHOP_MULTISELECT_INFO','Мультивыбор (CTRL + мышь)');

@@ -278,7 +278,7 @@ $config->file_lightbox_css = $config->live_path.'css/jquery.lightbox.css';
 $config->script_lightbox_init = 'function initJSlightBox(){
     jQuery("a.lightbox").lightBox({
         imageLoading: "'.JURI::root().'components/com_jshopping/images/loading.gif",
-        imageBtnClose: "'.JURI::root().'components/com_jshopping/images/close.gif",
+        imageBtnClose: "'.JURI::root().'components/com_jshopping/images/close.svg",
         imageBtnPrev: "'.JURI::root().'components/com_jshopping/images/prev.gif",
         imageBtnNext: "'.JURI::root().'components/com_jshopping/images/next.gif",
         imageBlank: "'.JURI::root().'components/com_jshopping/images/blank.gif",

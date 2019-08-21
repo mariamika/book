@@ -16,9 +16,9 @@
   		    <?php echo  _JSHOP_SEARCH_TEXT?>
            </div>
            
-        <div class="controls">
+        <div class="controls search_text">
         
-          <input type = "text" name = "search" style = "width:300px" />
+          <input type = "text" name = "search" />
         
       </div>
       
@@ -37,7 +37,7 @@
         </div>
       </div>
 	  
-      <div class="control-group">
+      <div class="control-group search_categories">
         <div class="control-label">
           <?php echo _JSHOP_SEARCH_CATEGORIES?>
         </div>
@@ -48,58 +48,47 @@
         </div>
       </div>
 	  
-      <div class="control-group">
+      <div class="control-group search_manufactures">
        <div class="control-label"> <?php echo _JSHOP_SEARCH_MANUFACTURERS?> </div>
         <div class="controls"><?php echo $this->list_manufacturers ?> </div>
       </div>
 	  
       <?php if (getDisplayPriceShop()){?>
       <div class="control-group">
-      <div class="control-label"> <?php echo _JSHOP_SEARCH_COINS?> </div>
-      
-      <div class="controls ">
-        
+        <div class="control-label"><?php echo _JSHOP_SEARCH_COINS?></div>
+        <div class="controls">
          <div class="row-fluid">
-        
-        
-        
-        <div class="span6">
-        <span class="input-prepend input-append">
-		<span class="add-on"><?php echo _JSHOP_SEARCH_PRICE_FROM?>   </span>
-       <input  type = "text" class="span6"  name = "price_from" id = "price_from" /> <span class="add-on"><?php echo $this->config->currency_code?></span>
+        <div class="span6 search_wrap">
+        <span class="input-prepend input-append search_summ">
+		    <span class="add-on search_add"><?php echo _JSHOP_SEARCH_PRICE_FROM?></span>
+          <input  type = "text" class="span6"  name = "price_from" id = "price_from" /><span class="add-on search_add"><?php echo $this->config->currency_code?></span>
        </span>
        </div>
        
-       <div class="span6">
-       <span class="input-prepend input-append">
-       &nbsp;&nbsp;<span class="add-on"><?php echo _JSHOP_SEARCH_PRICE_TO?></span>
-        <input  type = "text" class="span6" name = "price_to" id = "price_to" /> <span class="add-on"><?php echo $this->config->currency_code?></span>
+       <div class="span6 search_wrap">
+       <span class="input-prepend input-append search_summ">
+       <span class="add-on search_add"><?php echo _JSHOP_SEARCH_PRICE_TO?></span>
+        <input  type = "text" class="span6" name = "price_to" id = "price_to" /><span class="add-on search_add"><?php echo $this->config->currency_code?></span>
        </span>
        </div>
        </div>
-       
         </div>
       </div>
       <?php }?>
       
       <div class="control-group">
-       <div class="control-label"> <?php echo _JSHOP_SEARCH_DATE?> </div>
-       
+       <div class="control-label"><?php echo _JSHOP_SEARCH_DATE?></div>
         <div class="controls">
           <div class="row-fluid">
-        <div class="span6">
-        
-        <span class="input-prepend">
-			<span class="add-on"><?php echo _JSHOP_SEARCH_DATE_FROM ?> </span>      
-			<span><?php echo JHTML::_('calendar','', 'date_from', 'date_from', '%Y-%m-%d', array('class'=>'span6', 'size'=>'14', 'maxlength'=>'19')); ?></span>
-            
-            </span>
+        <div class="span6 search_wrap">
+        <span class="input-prepend search_date">
+    			<span class="add-on search_add"><?php echo _JSHOP_SEARCH_DATE_FROM ?></span>      
+		    	<span><?php echo JHTML::_('calendar','', 'date_from', 'date_from', '%Y-%m-%d', array('class'=>'span6', 'size'=>'14', 'maxlength'=>'19')); ?></span>
+        </span>
             </div>
-            
-            
-            <div class="span6">
-            <span class="input-prepend">
-			<span class="add-on"><?php echo _JSHOP_SEARCH_DATE_TO ?></span>
+            <div class="span6 search_wrap">
+            <span class="input-prepend search_date">
+			<span class="add-on search_add"><?php echo _JSHOP_SEARCH_DATE_TO ?></span>
 			<span><?php echo JHTML::_('calendar','', 'date_to', 'date_to', '%Y-%m-%d', array('class'=>'span6', 'size'=>'14', 'maxlength'=>'19')); ?></span>
             </span>
             </div>
@@ -114,7 +103,7 @@
     </div>
 	<div class="clear"></div>
     <div class="nvg_padd">
-    <input type = "submit" class="btn" value = "<?php echo _JSHOP_SEARCH ?>" />  
+    <input type = "submit" class="btn" value = "Начать поиск" />  
     </div>
     </form>
 </div>

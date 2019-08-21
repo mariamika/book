@@ -1,6 +1,6 @@
 <?php defined( '_JEXEC' ) or die(); ?>
 
-<h2 style="margin-bottom:15px;" >Выберите способ доставки</h2>
+<h2 style="margin-bottom:15px;" >Оформление заказа</h2>
 
 <?php echo $this->checkout_navigator?>
 <?php echo $this->small_cart?>
@@ -43,7 +43,7 @@
       	<div class="shipping_delivery"><small><?php echo _JSHOP_DELIVERY_TIME.": ".$shipping->delivery?></small></div>
       	<?php }?>
 	    <?php if ($shipping->delivery_date_f){?>
-      	<div class="shipping_delivery_date"><?php echo _JSHOP_DELIVERY_DATE.": ".$shipping->delivery_date_f?></div>
+      	<div class="shipping_delivery_date"><small><?php echo _JSHOP_DELIVERY_DATE.": ".$shipping->delivery_date_f?></small></div>
       	<?php }?>  
             
             </label>

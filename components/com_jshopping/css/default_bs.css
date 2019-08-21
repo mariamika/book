@@ -1,11 +1,63 @@
 /* Версия шаблона bootstrap-template 3 */
+h2 {
+    font-size: 1.5rem !important;
+}
 .hidden {
 display: none;
 visibility: hidden;
 }
+.js_search_gen .controls {
+    margin-left: 150px !important;
+}
+.search_text input{
+    width: 60% !important;
+}
+#category_id {
+    width: 112% !important;
+}
+.search_summ, .search_date {
+    display: flex;
+}
+.search_add {
+    display: inline-block;
+}
+.search_wrap {
+    min-height: auto !important;
+    width: 30% !important;
+    margin-left: 0 !important;
+}
+#price_from, #price_to, #date_from, #date_to {
+    display: inline-block;
+    width: 50%;
+    min-height: auto;
+    margin: 0 5px;
+}
+.search_manufactures {
+    display: none;
+}
+.search_categories {
+    width: 60%;
+}
+.nvg_padd {
+    margin-top: 50px;
+}
+.nvg_padd input {
+    background-color: #2f2f63;
+    color: #fff;
+}
 .jshop_prod_description ul {
     list-style: none !important;
     margin-left: -35px !important;
+}
+.back_to_shop {
+    margin-right: 30px;
+}
+.remove img{
+    max-width: 20%;
+    display: inline;
+}
+#jquery-lightbox {
+    top: 260px !important;
 }
 .my_categ {
     height: 60px !important;
@@ -910,8 +962,7 @@ div.list_related{
 .jshop_register{
     width: 100%;
     text-align: left;
-    padding:10px;
-    padding-left:0px;
+    padding:10px 0 0 0;
 }
 
 .jshop_register .inputbox{
@@ -1031,6 +1082,7 @@ div.rabatt { margin-top: 20px; }
 
 .jshop_subtotal {
     text-align: right;
+    list-style: none;
 }
 
 .checkout {
@@ -1111,26 +1163,32 @@ table.cart tfoot {
     border-bottom: 1px solid #ccc;
     min-height: 30px;
     text-align: center;
-	
+	list-style: none;
 }
-
+#jshop_menu_order {
+    padding-bottom: 25px;
+}
+#check_address {
+    margin-right: 30px;
+}
+.control-label span {
+    color: #aa0000;
+}
 .jshop_order_step {
     padding:5px 2px;
     text-align: center;
     vertical-align: middle;
     margin-right:10px;
-    font-size:14px;
+    font-size:1.1rem;
     font-weight:normal;
+    display: inline-block;
     /* color:#950000;*/
 }
-.jshop_order_step a {
-    vertical-align: top;
-    text-decoration: underline;
-    font-size:13px;
-    font-weight:bold;
+.visible-phone, .bill_address {
+    display: none;
 }
 #active_step {
-    font-weight: bold;
+    color: #f46140;
     padding:0;
     margin:0;
 }
@@ -1150,7 +1208,7 @@ table.cart tfoot {
 }
 
 #order_add_info {
-    width: 90%;
+    width: 100%;
     min-height: 100px;
 }
 .policy {
@@ -1163,10 +1221,14 @@ table.cart tfoot {
 }
 
 .thanksfinish{
-    font-size: 24px;
-    line-height: 30px;
+    font-size: 1.6rem;
+    line-height: 90px;
     text-align: center;
     text-transform: uppercase;
+    margin-top: 80px;
+    border: 1px solid rgba(38,38,38,0.1);
+    border-radius: 15px;
+    background-color: #fffaf0;
 }
 
 /*==================================================== END JSHOP CHECKOUT */
@@ -1358,16 +1420,12 @@ table.order_history td{
 
 }
 
-.control-label {
-text-align: left !important;
-
+.answer_no {
+    margin-right: 10px;
 }
-
-.checkout_otstup {
-margin: 5% 5% 0 2%;
-
+.question_reqsave{
+    text-align: left !important;
 }
-
 .btn-checkout-otstup {
 text-align:right;
 margin-right:15px;
@@ -1872,11 +1930,9 @@ text-decoration: line-through;
     *width: 14.8404255319%;
   }
 }
-
-
 .headingcart  {
 margin-bottom:15px;
-
+font-size: 1.5rem;
 }
 /* Поправки и дополнения */
  @media screen and (max-width: 768px){

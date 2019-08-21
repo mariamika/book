@@ -275,9 +275,9 @@ include(dirname(__FILE__)."/adress.js.php");
     
     <?php if ($this->count_filed_delivery > 0){?>
     <div class="control-group checkout_otstup" >
-    <?php echo _JSHOP_DELIVERY_ADRESS ?>
+    <span id="check_address"><?php echo _JSHOP_DELIVERY_ADRESS ?></span>
     
-    <label class="checkbox inline" for="delivery_adress_1"><?php echo _JSHOP_NO ?>
+    <label class="checkbox inline answer_no" for="delivery_adress_1"><?php echo _JSHOP_NO ?>
     <input type="radio" name="delivery_adress" id="delivery_adress_1" value="0" <?php if (!$this->delivery_adress) {?> checked="checked" <?php } ?> onclick="jQuery('#div_delivery').hide()" /></label>
     
     
@@ -553,7 +553,7 @@ include(dirname(__FILE__)."/adress.js.php");
     
     <div class="reqsave">
         <?php echo $this->_tmpl_address_html_8?>
-       <p class="btn-checkout-otstup requiredtext">* <?php echo _JSHOP_REQUIRED?></p>
+       <p class="btn-checkout-otstup requiredtext question_reqsave">* <?php echo _JSHOP_REQUIRED?></p>
         <?php echo $this->_tmpl_address_html_9?>
         <p class="btn-checkout-otstup requiredtext"><input type="submit" name="next" value="<?php echo _JSHOP_NEXT?>" class="btn btn-success" /></p>
     </div>
