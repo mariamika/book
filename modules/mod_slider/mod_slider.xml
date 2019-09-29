@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/css" href="mytest.css"?>
+<extension type="module" version="3.0" method="upgrade" client="site">
+    <name>Huge-IT Slider Module</name>
+    <author>Huge-IT</author>
+    <creationDate>January 2015</creationDate>
+    <copyright>Copyright (C) 2013 Huge-IT.com 2013. All rights reserved.</copyright> 
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>info@huge-it.com</authorEmail> 
+    <authorUrl>http://www.huge-it.com</authorUrl>
+    <version>1.1.1</version>
+    <files>
+        <filename>mod_slider.xml</filename>
+        <filename module="mod_slider">mod_slider.php</filename>
+        <filenmae>index.html</filenmae>
+        <folder>models</folder>
+        <folder>language</folder>
+    </files>
+   <config>
+      
+        <fields name="params">
+            <fieldset name="basic" addfieldpath="/modules/mod_slider/models/fields" label="General Options">
+                <field name="choose_slider" type="jscolor" label="Choose The Slider"  type_="choose_slider">
+                </field>
+            </fieldset>
+        </fields>
+        <languages folder="language">
+            <language tag="en-GB">en-GB/en-GB.mod_slider.ini></language>
+            <language tag="en-GB">en-GB/en-GB.mod_slider.sys.ini></language>
+        </languages>
+		
+    </config>
+</extension>
