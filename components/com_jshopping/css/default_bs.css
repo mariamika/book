@@ -1,5 +1,55 @@
 /* Версия шаблона bootstrap-template 3 */
 
+/* top block */
+
+.topBlock {
+margin-top: 50px;
+}
+
+.topBlock > .label_products {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: space-between;
+}
+
+.topBlock > .label_products > .block_item {
+    display: block;
+    width: 30%;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.topBlock > .label_products > .block_item > .item_image {
+    height: 200px !important;
+    width: auto !important;
+    display: table;
+}
+
+.topBlock > .label_products > .block_item > .item_name {
+    padding: 0px;
+    min-height: 75px;
+    overflow: hidden;
+}
+
+.topBlock > .label_products > .block_item > .item_name:before{
+    content:"";
+    display:block;
+    height:15px;
+    position:relative;
+    top:60px;
+    background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 75%)
+}
+
+.topBlock > .label_products > .block_item > .item_price {
+    font-size: 1.3rem;
+    color: #B94840 !important;
+    margin-top: 8px;
+}
+
 /*carusel*/
 
 .container-fluid {
@@ -68,7 +118,11 @@ visibility: hidden;
     display: inline;
 }
 #jquery-lightbox {
-    top: 260px !important;
+    top: 100px !important;
+    z-index: 1000 !important;
+}
+#jquery-overlay {
+    z-index: 900 !important;
 }
 .my_categ {
     height: 60px !important;
@@ -568,7 +622,7 @@ td.reviews{
     position: absolute;
     right: 0;
     margin-right: -2px;
-    margin-top: -5px;
+    /*margin-top: -5px;*/
 	z-index:1;
 }
 .jshop .product_label .label_name{
@@ -1050,7 +1104,7 @@ div.rabatt { margin-top: 20px; }
 
 .jshop.list_product div[class*="span"] {
     margin: 0;
-    padding: 0 10px 15px 0;
+    /*padding: 0 10px 15px 0;*/
 }
 
 .jshop_categ table.category {
