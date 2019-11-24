@@ -85,12 +85,20 @@
 /* выравнивание для корзины в шапке*/
 .my-cart{
     text-align: right;
-    margin-top: 30px;
+    margin-top: 20px;
+}
+
+.jshop {
+    margin-top: 10px;
+}
+
+#system-message-container {
+    margin-top: 15px;
 }
 
 /* выравнивание для поиска в шапке*/
 .my-search{
-    margin-top: 30px;
+    margin-top: 20px;
 
 }
 
@@ -123,12 +131,13 @@
     width: 100%;
     z-index: 150;
     margin-top: 44px;
+    padding: 0 !important;
     position: fixed;
 }
 /* фиксация меню */
 #sp-menu {
     width: 100%;
-    margin-top: 80px;
+    margin-top: 70px;
     height: auto;
     position: fixed;
     z-index: 140;
@@ -140,6 +149,7 @@
 /* сдвиг основного контента вниз, чтобы фиксированное меню не перекрывало */
 #sp-main-body {
     width: 100%;
+    padding: 50px 0 !important;
     margin-top: 161px;
     min-height: 75vh;
 }
@@ -193,8 +203,8 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 
 /* Заголовки к статьям на сайте */
 .beginTitleArticles {
-    margin: 30px auto;
-    padding: 20px auto;
+    margin: 0 auto;
+    padding: 10px auto;
     text-align: left;
 }
 

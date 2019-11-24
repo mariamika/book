@@ -100,8 +100,8 @@ a:hover, a:focus, a:active {
   background-color: #f68e13;
 }
 .btn-primary:hover, .sppb-btn-primary:hover {
-  border-color: #044cd0;
-  background-color: #044cd0;
+  border-color: #f46140;
+  background-color: #f46140;
 }
 ul.social-icons > li a:hover {
   color: #f68e13;
