@@ -1,1 +1,0 @@
-<?php die("Access Denied"); ?>#x#a:2:{s:6:"result";s:165:"try{jQuery.noConflict();}catch(e){console.error('Error in file:/plugins/system/jqueryeasy/jquerynoconflict.js?c149ea08a6dab24d4737665cf459e88e; Error:'+e.message);};";s:6:"output";s:0:"";}

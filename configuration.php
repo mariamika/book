@@ -41,9 +41,9 @@ class JConfig {
 	public $smtphost = 'smtp.yandex.com';
 	public $smtpsecure = 'ssl';
 	public $smtpport = '465';
-	public $caching = '2';
+	public $caching = '0';
 	public $cache_handler = 'file';
-	public $cachetime = '1400';
+	public $cachetime = '10';
 	public $cache_platformprefix = '1';
 	public $MetaDesc = '';
 	public $MetaKeys = '';

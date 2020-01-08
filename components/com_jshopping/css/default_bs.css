@@ -151,11 +151,11 @@ table.list_product{
     border-color: #b6b6d8 !important;
 }
 .box_products_sorting {
-    width: 70% !important;
+    width: 60% !important;
     min-height: 40px !important;
 }
 .box_products_count_to_page{
-    width: 29% !important;
+    width: 30% !important;
     min-height: 40px !important;
 }
 .my_btn_styles {
@@ -620,9 +620,8 @@ td.reviews{
 
 .jshop .product_label{
     position: absolute;
-    right: 0;
-    margin-right: -2px;
-    /*margin-top: -5px;*/
+    right: 23px;
+    top: 2px;
 	z-index:1;
 }
 .jshop .product_label .label_name{
@@ -643,6 +642,7 @@ td.reviews{
 }
 .jshop_list_category .category .image{
     width: 10%;
+    margin-right: 10px;
 }
 
 .jshop_list_manufacturer .manufacturer td{
@@ -1119,6 +1119,7 @@ div.rabatt { margin-top: 20px; }
     border: 1px solid #dcdcdc;
     border-radius: 5px;	
     display: flex;
+    align-items: center;
 }
 
 /************************** list category ********************/

@@ -211,3 +211,510 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 .beginTitleArticles h1 {
     font-size: 1.8rem !important;
 }
+
+/*****************************/
+/*****************************/
+/*****************************/
+/* СТИЛИ ДЛЯ МЕДИА УСТРОЙСТВ */
+@media (min-width: 1200px) {
+    /* главная страница */
+    #sp-logo {
+        max-width: 30%;
+        margin-left: -10px;
+    }
+    #sp-search {
+        max-width: 60%;
+    }
+    #sp-position1 {
+        max-width: 10%;
+        margin-left: 45px;
+    }
+    #sp-logozone {
+        margin-top: 44px !important;
+    }
+    .jshop_categ {
+        min-height: auto !important;
+    }
+    /* о нас */
+    .book-img {
+        margin: 40px 0 0 30px !important;
+    }
+    /* страница категории */
+    .product_title {
+        max-height: 90px !important;
+        min-height: 90px !important;
+    }
+    .product_title > a {
+        height: 90px;
+        display: inline-block;
+    }
+    .product_title {
+        overflow: hidden;
+        padding: 0;
+    }
+    .product_title::after {
+        content: "";
+        display: block;
+        height: 15px;
+        position: relative;
+        bottom  : 35px;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), #fff 75%);
+    }
+    /* заказ/адрес */
+    #jshop_menu_order {
+        padding-left: 0 !important;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+    /* главная страница */
+    #sp-top1 {
+        width: 20%;
+    }
+    #sp-top2 {
+        width: 80%;
+    }
+    #sp-logo {
+        max-width: 30% !important;
+    }
+    #sp-search {
+        max-width: 60% !important;
+    }
+    #sp-position1 {
+        max-width: 10% !important;
+        margin-left: 23px;
+    }
+    .my-input-search {
+        width: 70% !important;
+    }
+    .logo {
+        margin-left: -10px;
+    }
+    #slider-container117 {
+        width: 85%;
+        left: 7.5%;
+    }
+    #navigation117 {
+        margin: 0 !important;
+    }
+    #sp-menu {
+        margin-top: 70px;
+    }
+    #sp-component {
+        margin-top: 20px;
+    }
+    /* о нас */
+    .book-img {
+        margin: 40px 0 0 30px !important;
+    }
+    /* страница категории */
+    .jshop .product_label {
+        right: -8px;
+        top: 8px;
+    }
+    .mainblock, .my_btn_styles {
+        margin-left: 50px !important;
+    }
+    .product_title {
+        max-height: 90px !important;
+        min-height: 90px !important;
+    }
+    .product_title > a {
+        height: 90px;
+        display: inline-block;
+    }
+    .product_title {
+        overflow: hidden;
+        padding: 0;
+    }
+    .product_title::after {
+        content: "";
+        display: block;
+        height: 15px;
+        position: relative;
+        bottom  : 15px;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), #fff 75%);
+    }
+    /* страница книги */
+    .productfull .span7 {
+        width: 50% !important;
+    }
+    .productfull .product_label {
+        right: -10px !important;
+    }
+    /* расширенный поиск */
+    .search_wrap {
+        width: 40% !important;
+    }
+    /* заказ/адрес */
+    #jshop_menu_order {
+        padding-left: 0 !important;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    /* главная страница */
+    #sp-top1 {
+        width: 20%;
+    }
+    #sp-top2 {
+        width: 80%;
+    }
+    #sp-logozone {
+        margin-top: 68px;
+    }
+    #sp-logo {
+        max-width: 30% !important;
+    }
+    #sp-search {
+        max-width: 58% !important;
+    }
+    #sp-position1 {
+        max-width: 12% !important;
+    }
+    .logo {
+        margin-left: -6px;;
+    }
+    .my-input-search {
+        width: 70% !important;
+    }
+    #sp-menu {
+        margin-top: 80px;
+    }
+    #sp-component {
+        margin-top: 20px;
+    }
+    #slider-container117 {
+        width: 85%;
+        left: 7%;
+    }
+    #sp-main-body {
+        padding-bottom: 0 !important;
+    }
+    /* о нас */
+    .book-img {
+        width: 160px !important;
+        margin: 40px 0 0 30px !important;
+    }
+    /* страница категории */
+    .box_products_sorting {
+        width: 50% !important;
+    }
+    .box_products_count_to_page{
+        width: 40% !important;
+    }
+    .mainblock {
+        width: 65% !important;
+    }
+    .jshop .product_label {
+        right: 0;
+    }
+    .product_title {
+        max-height: 90px !important;
+        min-height: 90px !important;
+    }
+    .product_title > a {
+        height: 90px;
+        display: inline-block;
+    }
+    .product_title {
+        overflow: hidden;
+        padding: 0;
+    }
+    .product_title::after {
+        content: "";
+        display: block;
+        height: 15px;
+        position: relative;
+        bottom  : 15px;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), #fff 75%);
+    }
+    /* страница книги */
+    .productfull .span7 {
+        width: 45% !important;
+    }
+    .productfull .product_label {
+        right: -10px !important;
+    }
+    .productfull .span5 {
+        width: 50% !important
+    }
+    /* контакты */
+    #slider-container118 {
+        width: 84%;
+        left: 8%;
+    }
+    #cust-navigation118 {
+        right: 50px !important;
+    }
+    /* расширенный поиск */
+    .js_search_gen .controls {
+        margin-left: 100px !important;
+    }
+    .search_wrap {
+        width: 50% !important;
+    }
+    /* заказ/адрес */
+    #jshop_menu_order {
+        padding-left: 0 !important;
+    }
+}
+
+@media (max-width: 767px) and (min-width: 576px) {
+    /* главная страница */
+    #sp-inform-top {
+        padding: 15px 30px !important;
+    }
+    #sp-top1 {
+        width: 20%;
+    }
+    #sp-top2 {
+        width: 80%;
+    }
+    #sp-top2, #sp-top1 {
+        padding: 0;
+    }
+    #sp-logozone {
+        margin-top: 102px;
+    }
+    #sp-logo {
+        max-width: 50% !important;
+    }
+    #sp-search {
+        display: none;
+    }
+    #sp-position1 {
+        max-width: 50% !important;
+    }
+    #sp-menu {
+        margin-top: 100px;
+    }
+    #sp-component {
+        margin-top: 55px;
+    }
+    #slider-container117 {
+        width: 85%;
+        left: 7%;
+    }
+    #navigation117 {
+        margin: 0 !important;
+    }
+    .topBlock .label_products .block_item .item_image {
+        height: 50% !important;
+    }
+    .sp-scroll-up {
+        bottom: 21px !important;
+        right: 10px !important;
+    }
+    .logo {
+        margin-left: -7px;
+    }
+    #sp-main-body {
+        padding-bottom: 0 !important;
+    }
+    /* о нас */
+    .book-img {
+        width: 150px !important;
+        margin: 40px 0 0 30px !important;
+    }
+    /* страница категории */
+     .box_products_sorting {
+        width: 40% !important;
+    }
+    .box_products_count_to_page{
+        width: 40% !important;
+    }
+    .jshop .product_label {
+        top: 5px;
+        left: 4px;
+    }
+    .mainblock {
+        width: 65% !important;
+    }
+    .product_title {
+        max-height: 90px !important;
+        min-height: 90px !important;
+    }
+    .product_title > a {
+        height: 90px;
+        display: inline-block;
+    }
+    .product_title {
+        overflow: hidden;
+        padding: 0;
+    }
+    .product_title::after {
+        content: "";
+        display: block;
+        height: 15px;
+        position: relative;
+        bottom  : 15px;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), #fff 75%);
+    }
+    /* страница книги */
+    .productfull .span7 {
+        width: 45% !important;
+    }
+    .productfull .product_label {
+        right: -10px !important;
+    }
+    .productfull .span5 {
+        width: 50% !important
+    }
+    /* доставка и оплата */
+    .delivery, .parcel, .pay {
+        width: 200px !important;
+    }
+    /* контакты */
+    #slider-container118 {
+        width: 84%;
+        left: 8%;
+    }
+    #cust-navigation118 {
+        right: 40px !important;
+    }
+    /* корзина */
+    .table td, .table th {
+        padding: 0 !important;
+        text-align: center !important;
+    }
+    .jshop_prod_cart .product_name > a {
+        max-height: 200px !important;
+        display: inline-block;
+        overflow: hidden;
+        padding: 5px;
+    }
+    /* заказ/адрес */
+    #jshop_menu_order {
+        padding-left: 0 !important;
+    }
+}
+
+@media (max-width: 575px) {
+    /* главная страница */
+    #sp-top1 {
+        width: 20%;
+    }
+    #sp-top2 {
+        width: 80%;
+    }
+    #sp-logozone {
+        margin-top: 92px;
+    }
+    #sp-logo {
+        max-width: 50% !important;
+    }
+    #sp-search {
+        display: none;
+    }
+    #sp-position1 {
+        max-width: 50% !important;
+    }
+    #sp-inform-top {
+        padding: 10px 0 10px !important;
+    }
+    #sp-menu {
+        margin-top: 90px;
+        max-height: 80px;
+    }
+    #sp-component {
+        margin-top: 40px;
+    }
+    #slider-container117 {
+        width: 84%;
+        left: 8%;
+    }
+    .topBlock .label_products .block_item .item_image {
+        height: 45% !important;
+    }
+    .sp-scroll-up {
+        bottom: 21px !important;
+        right: 10px !important;
+    }
+    #sp-main-body {
+        padding-bottom: 0 !important;
+    }
+    /* о нас */
+    .book-img {
+        width: 130px !important;
+        margin: 40px 0 0 30px !important;
+    }
+    /* страница категории */
+    .box_products_sorting {
+        width: 50% !important;
+    }
+    .box_products_count_to_page{
+        width: 40% !important;
+    }
+    .jshop .product_label {
+        top: 5px;
+        left: 4px;
+    }
+    .mainblock {
+        width: 65% !important;
+    }
+    .btn-buy {
+        width: 50%;
+    }
+    .product_title {
+        max-height: 70px !important;
+        min-height: 70px !important;
+    }
+    .product_title > a {
+        height: 70px;
+        display: inline-block;
+    }
+    .product_title {
+        overflow: hidden;
+        padding: 0;
+    }
+    .product_title::after {
+        content: "";
+        display: block;
+        height: 15px;
+        position: relative;
+        bottom  : 15px;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), #fff 75%);
+    }
+    /* страница книги */
+    .productfull .span7 {
+        width: 100% !important;
+    }
+    .productfull .span5 {
+        width: 100% !important
+    }
+    /* подарочные сертификаты */
+    .sertificateCarts {
+        width: 200px !important;
+    }
+    /* доставка и оплата */
+    .delivery, .parcel, .pay {
+        width: 400px !important;
+    }
+    /* контакты */
+    #slider-container118 {
+        width: 84%;
+        left: 8%;
+    }
+    #cust-navigation118 {
+        right: 30px !important;
+    }
+    /* корзина */
+    .table td, .table th {
+        padding: 0 !important;
+        text-align: center !important;
+    }
+    .jshop_prod_cart .product_name > a {
+        max-height: 200px !important;
+        display: inline-block;
+        overflow: hidden;
+        /*padding: 5px;*/
+    }
+    .jshop_prod_cart .jshop_img_description_center, .table th:first-child {
+        display: none;
+    }
+    /* заказ/адрес */
+    #jshop_menu_order {
+        padding-left: 0 !important;
+    }
+}
