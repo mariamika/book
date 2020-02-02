@@ -177,11 +177,5 @@ if ($custom_js = $this->params->get('custom_js'))
     <?php endif; ?>
 
     <script type="text/javascript" src="<?php echo $baseUrl?>components/com_jshopping/js/jquery/jquery.lightbox.js"></script>
-    <script>
-        const linkCategory = window.document.getElements('.item-124');
-        if (linkCategory) {
-            linkCategory[0].innerHTML = "<a href=\"index.php?option=com_jshopping&view=category\">Категории</a>";
-        }
-    </script>
     </body>
 </html>
