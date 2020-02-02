@@ -16,6 +16,16 @@ function modChrome_sp_xhtml($module, $params, $attribs)
 	$moduleClass   = $bootstrapSize !== 0 ? ' span' . $bootstrapSize : '';
 	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'), ENT_QUOTES, 'UTF-8');
 	$headerClass   = htmlspecialchars($params->get('header_class', 'sp-module-title'), ENT_COMPAT, 'UTF-8');
+	$offcanvas = '';
+	
+	if ($attribs) {
+		foreach ($attribs as $value) {
+			if ($value === 'offcanvas') {
+				$offcanvas = $offcanvas + $value;
+			}
+		}
+	}
+
 
 	if ($module->content)
 	{
@@ -28,7 +38,8 @@ function modChrome_sp_xhtml($module, $params, $attribs)
 
 			echo '<div class="sp-module-content">';
 
-			echo '<div class="offcanvas-menu">
+			if ($offcanvas !== '') {
+				echo '<div class="offcanvas-menu">
         <a href="#" class="close-offcanvas"><span class="fa fa-remove"></span></a>
         <div class="offcanvas-inner">
           <ul class="menu">
@@ -47,8 +58,11 @@ function modChrome_sp_xhtml($module, $params, $attribs)
 					</ul>
         </div>
     	</div>';
+			}
 
-			/* echo $module->content; */
+  	  echo $module->content;
+
+			echo $offCanvas;
 			echo '</div>';
 		echo '</' . $moduleTag . '>';
 	}
