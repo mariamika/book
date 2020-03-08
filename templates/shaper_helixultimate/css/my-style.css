@@ -119,7 +119,6 @@
     border-bottom-left-radius: unset !important;
     margin-left: -5px;
     background-color: #f46140;
-    width: 100px !important;
 }
 
 /* тень под шапкой + фиксация зоны с логотипом*/
@@ -213,27 +212,56 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 }
 
 /*****************************/
+/* Стили для формы на странице Формирование библиотек */
+.bootstrap-wrapper.SfFormElementContainer .rednao-control-group .rednao_control_label{
+    Font-Family:Tahoma !important;
+    font-weight:normal !important;
+    }
+    
+    .bootstrap-wrapper.SfFormElementContainer .rednao-control-group {
+    background-color:null !important;
+    border-right:1px double null !important;
+    }
+    .bootstrap-wrapper.SfFormElementContainer #rnField10 .rednao_control_label{
+    color:null !important;
+    }
+    .bootstrap-wrapper.SfFormElementContainer #rnField10 {
+    background-color:null !important;
+    }
+    .bootstrap-wrapper.SfFormElementContainer #rnField10 .redNaoSubmitButton{
+    color:#ffffff !important;
+    background-color:#f46140 !important;
+    }
+    .nameFormat .rednao_label_container, .phoneFormat .rednao_label_container, .mailFormat .rednao_label_container, .messageFormat .rednao_label_container, .redNaoControls{
+    padding:0 !important;
+    }
+    .rednao_label_container{
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    }
+    
+
+/*****************************/
 /*****************************/
 /*****************************/
 /* СТИЛИ ДЛЯ МЕДИА УСТРОЙСТВ */
+
+
+/* laptop */
 @media (min-width: 1200px) {
     /* главная страница */
-    #sp-logo {
-        max-width: 30%;
-        margin-left: -10px;
-    }
-    #sp-search {
-        max-width: 60%;
-    }
-    #sp-position1 {
-        max-width: 10%;
-        margin-left: 45px;
+    .logo-image {
+        width: 100%;
+        padding: 15px;
     }
     #sp-logozone {
         margin-top: 44px !important;
     }
     .jshop_categ {
         min-height: auto !important;
+    }
+    .topBlock > .label_products > .block_item > .item_image > a > img {
+        max-height: 200px !important;
     }
     /* о нас */
     .book-img {
@@ -260,12 +288,33 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
         bottom  : 35px;
         background-image: linear-gradient(to bottom, rgba(255,255,255,0), #fff 75%);
     }
+    /* страница категория */
+    .box_products_count_to_page {
+        margin-left: 0 !important;
+    }
+    /* формирование библиотек */
+    .phoneFormat > .redNaoControls > .form-inline .form-group:first-child{
+        width: 100px;
+    }
+    .phoneFormat > .redNaoControls > .form-inline .form-group:last-child{
+        width: 300px;
+    }
+    .mailFormat > .redNaoControls > .rednao-input-prepend{
+        width: 385px;
+    }
+    .nameFormat > .redNaoControls > .rednao-input-prepend .form-control {
+        width: 500px;
+    }
+    .messageFormat textarea {
+        width: 535px !important;
+    }
     /* заказ/адрес */
     #jshop_menu_order {
         padding-left: 0 !important;
     }
 }
 
+/* планшет перевернутый в ширину */
 @media (max-width: 1199px) and (min-width: 992px) {
     /* главная страница */
     #sp-top1 {
@@ -274,21 +323,12 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     #sp-top2 {
         width: 80%;
     }
-    #sp-logo {
-        max-width: 30% !important;
-    }
-    #sp-search {
-        max-width: 60% !important;
-    }
     #sp-position1 {
-        max-width: 10% !important;
-        margin-left: 23px;
+        margin-left: -5px;
     }
-    .my-input-search {
-        width: 70% !important;
-    }
-    .logo {
-        margin-left: -10px;
+    .logo-image {
+        width: 100%;
+        padding: 20px;
     }
     #slider-container117 {
         width: 85%;
@@ -302,6 +342,9 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     }
     #sp-component {
         margin-top: 20px;
+    }
+    .topBlock > .label_products > .block_item > .item_image > a > img {
+        max-height: 200px !important;
     }
     /* о нас */
     .book-img {
@@ -335,12 +378,32 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
         bottom  : 15px;
         background-image: linear-gradient(to bottom, rgba(255,255,255,0), #fff 75%);
     }
+    /* страница категория */
+    .box_products_count_to_page {
+        margin-left: 0 !important;
+    }
     /* страница книги */
     .productfull .span7 {
         width: 50% !important;
     }
     .productfull .product_label {
         right: -10px !important;
+    }
+    /* формирование библиотек */
+    .phoneFormat > .redNaoControls > .form-inline .form-group:first-child{
+        width: 100px;
+    }
+    .phoneFormat > .redNaoControls > .form-inline .form-group:last-child{
+        width: 300px;
+    }
+    .mailFormat > .redNaoControls > .rednao-input-prepend{
+        width: 385px;
+    }
+    .nameFormat > .redNaoControls > .rednao-input-prepend .form-control {
+        width: 500px;
+    }
+    .messageFormat textarea {
+        width: 535px !important;
     }
     /* расширенный поиск */
     .search_wrap {
@@ -352,6 +415,7 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     }
 }
 
+/* планшет в высоту*/
 @media (max-width: 991px) and (min-width: 768px) {
     /* главная страница */
     #sp-top1 {
@@ -363,26 +427,28 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     #sp-logozone {
         margin-top: 68px;
     }
+    #sp-logozone .row {
+        flex-wrap: nowrap !important;
+    }
     #sp-logo {
-        max-width: 30% !important;
+        max-width: 47% !important;
     }
     #sp-search {
-        max-width: 58% !important;
+        max-width: 41% !important;
     }
     #sp-position1 {
         max-width: 12% !important;
     }
-    .logo {
-        margin-left: -6px;;
+    .logo-image-phone {
+        width: 100%;
+        padding: 20px;
     }
     .my-input-search {
         width: 70% !important;
     }
     #sp-menu {
-        margin-top: 80px;
-    }
-    #sp-component {
-        margin-top: 20px;
+        margin-top: 75px;
+        height: 60px;
     }
     #slider-container117 {
         width: 85%;
@@ -390,6 +456,9 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     }
     #sp-main-body {
         padding-bottom: 0 !important;
+    }
+    .topBlock > .label_products > .block_item > .item_image > a > img {
+        max-height: 200px !important;
     }
     /* о нас */
     .book-img {
@@ -454,31 +523,56 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     .search_wrap {
         width: 50% !important;
     }
+    /* формирование библиотек */
+    .col-sm-6 {
+        max-width: 100% !important;
+    }
+    .phoneFormat > .redNaoControls > .form-inline .form-group:first-child{
+        width: 100px;
+    }
+    .phoneFormat > .redNaoControls > .form-inline .form-group:last-child{
+        width: 300px;
+    }
+    .mailFormat > .redNaoControls > .rednao-input-prepend{
+        width: 385px;
+    }
+    .nameFormat > .redNaoControls > .rednao-input-prepend .form-control {
+        width: 500px;
+    }
+    .messageFormat textarea {
+        width: 535px !important;
+    }
     /* заказ/адрес */
     #jshop_menu_order {
         padding-left: 0 !important;
     }
 }
 
+/* перевернутый в ширину телефон */
 @media (max-width: 767px) and (min-width: 576px) {
     /* главная страница */
     #sp-inform-top {
-        padding: 15px 30px !important;
+        display: none;
     }
     #sp-top1 {
-        width: 20%;
+        width: 10%;
     }
     #sp-top2 {
-        width: 80%;
+        width: 90%;
     }
     #sp-top2, #sp-top1 {
         padding: 0;
     }
     #sp-logozone {
-        margin-top: 102px;
+        margin-top: 0;
     }
     #sp-logo {
         max-width: 50% !important;
+    }
+    .logo-image-phone {
+        height: 70px !important;
+        width: 100%;
+        padding: 10px;
     }
     #sp-search {
         display: none;
@@ -486,11 +580,15 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     #sp-position1 {
         max-width: 50% !important;
     }
-    #sp-menu {
-        margin-top: 100px;
+    .my-cart {
+        margin-top: 0 !important;
     }
-    #sp-component {
-        margin-top: 55px;
+    #sp-menu {
+        margin-top: 25px;
+        height: 60px;
+    }
+    #offcanvas-toggler {
+        height: 30px !important;
     }
     #slider-container117 {
         width: 85%;
@@ -498,9 +596,6 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     }
     #navigation117 {
         margin: 0 !important;
-    }
-    .topBlock .label_products .block_item .item_image {
-        height: 50% !important;
     }
     .sp-scroll-up {
         bottom: 21px !important;
@@ -511,11 +606,25 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     }
     #sp-main-body {
         padding-bottom: 0 !important;
+        margin-top: 40px;
+    }
+    .topBlock > .label_products > .block_item > .item_image {
+        height: 180px !important;
+    }
+    .topBlock > .label_products > .block_item > .item_price {
+        font-size: 1rem;
+    }    
+    .topBlock > .label_products > .block_item > .item_image > a > img {
+        max-height: 180px !important;
     }
     /* о нас */
     .book-img {
         width: 150px !important;
         margin: 40px 0 0 30px !important;
+    }
+    /* новые поступления */
+    .jshop_list_product {
+        margin-top: 50px;
     }
     /* страница категории */
      .box_products_sorting {
@@ -551,6 +660,17 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
         bottom  : 15px;
         background-image: linear-gradient(to bottom, rgba(255,255,255,0), #fff 75%);
     }
+    /* страница категория в категории */
+    .jshop {
+        margin-top: 50px;
+    }
+    /* категория */
+    .box_products_sorting, .box_products_count_to_page {
+        margin-left: 0 !important;
+    }
+    .box_products_sorting select, .box_products_count_to_page select {
+        margin-left: 0 !important;
+    }
     /* страница книги */
     .productfull .span7 {
         width: 45% !important;
@@ -565,6 +685,19 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     .delivery, .parcel, .pay {
         width: 200px !important;
     }
+    /* формирование библиотек */
+    .phoneFormat > .redNaoControls > .form-inline .form-group:first-child{
+        width: 100px;
+    }
+    .phoneFormat > .redNaoControls > .form-inline .form-group:last-child{
+        width: 300px;
+    }
+    .mailFormat > .redNaoControls > .rednao-input-prepend{
+        width: 263px;
+    }
+    .nameFormat > .redNaoControls > .rednao-input-prepend .form-control {
+        width: 50vw;
+    }
     /* контакты */
     #slider-container118 {
         width: 84%;
@@ -572,6 +705,9 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     }
     #cust-navigation118 {
         right: 40px !important;
+    }
+    .yandexMap > ymaps {
+        max-height: 300px !important;
     }
     /* корзина */
     .table td, .table th {
@@ -590,56 +726,76 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     }
 }
 
+/* телефон в высоту */
 @media (max-width: 575px) {
     /* главная страница */
-    #sp-top1 {
-        width: 20%;
-    }
-    #sp-top2 {
-        width: 80%;
-    }
     #sp-logozone {
-        margin-top: 92px;
+        margin-top: 0;
     }
     #sp-logo {
-        max-width: 50% !important;
+        max-width: 70% !important;
+        margin-right: 0;
+    }
+    .logo-image-phone {
+        height: 70px !important;
+        width: 100%;
+        padding: 15px;
     }
     #sp-search {
         display: none;
     }
     #sp-position1 {
-        max-width: 50% !important;
+        max-width: 30% !important;
     }
     #sp-inform-top {
-        padding: 10px 0 10px !important;
+        display: none;
     }
     #sp-menu {
-        margin-top: 90px;
-        max-height: 80px;
+        margin-top: 25px;
+        max-height: 60px;
     }
     #sp-component {
         margin-top: 40px;
     }
+    .my-cart {
+        margin-top: 0 !important;
+    }
     #slider-container117 {
         width: 84%;
         left: 8%;
-    }
-    .topBlock .label_products .block_item .item_image {
-        height: 45% !important;
     }
     .sp-scroll-up {
         bottom: 21px !important;
         right: 10px !important;
     }
     #sp-main-body {
-        padding-bottom: 0 !important;
+        margin-top: 0;
+    }
+    .topBlock > .label_products > .block_item {
+        width: 48% !important;
+    }
+    .topBlock > .label_products > .block_item > .item_price {
+        font-size: 1rem;
+    } 
+    .topBlock > .label_products > .block_item > .item_image > a > img {
+        max-height: 200px !important;
     }
     /* о нас */
     .book-img {
         width: 130px !important;
         margin: 40px 0 0 30px !important;
     }
+    /* новые поступления */
+    .jshop_list_product {
+        margin-top: 50px;
+    }
     /* страница категории */
+    .jshop_list_category {
+        margin-top: 40px !important;
+    }
+    .jshop_categ {
+        text-align: left;
+    }
     .box_products_sorting {
         width: 50% !important;
     }
@@ -676,6 +832,29 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
         bottom  : 15px;
         background-image: linear-gradient(to bottom, rgba(255,255,255,0), #fff 75%);
     }
+    /* страница категория */
+    .jshop_list_product .box_products_count_to_page {
+        margin-left: 0 !important;
+        display: flex;
+        flex-direction: column;
+    }
+    .jshop_list_product .box_products_sorting {
+        margin-left: 0 !important;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .box_products_count_to_page select {
+        margin-left: 0px !important;
+        width: 90% !important;
+    }
+    .box_products_sorting select {
+        margin-left: 0px !important;
+        width: 80% !important;
+    }
+    .jshop_list_product .box_products_sorting img {
+        margin-top: 8px !important;
+    }
     /* страница книги */
     .productfull .span7 {
         width: 100% !important;
@@ -691,6 +870,19 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     .delivery, .parcel, .pay {
         width: 400px !important;
     }
+    /* формирование библиотек */
+    .phoneFormat > .redNaoControls > .form-inline .form-group:first-child{
+        width: 100px !important;
+    }
+    .phoneFormat > .redNaoControls > .form-inline .form-group:last-child{
+        width: 178px !important;
+    }
+    .mailFormat > .redNaoControls > .rednao-input-prepend{
+        width: 263px !important;
+    }
+    .nameFormat > .redNaoControls > .rednao-input-prepend .form-control {
+        width: 70vw !important;
+    }
     /* контакты */
     #slider-container118 {
         width: 84%;
@@ -698,6 +890,9 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     }
     #cust-navigation118 {
         right: 30px !important;
+    }
+    .yandexMap > ymaps {
+        max-height: 300px !important;
     }
     /* корзина */
     .table td, .table th {
@@ -716,5 +911,45 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     /* заказ/адрес */
     #jshop_menu_order {
         padding-left: 0 !important;
+    }
+
+}
+
+@media (max-width: 460px) {
+    /* корзина */
+    .jshop, form {
+        font-size: 0.8rem;
+    }
+    .jshop_order_step {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 370px) {
+    /* главная */
+    .topBlock > .label_products > .block_item > .item_image {
+        height: 160px !important;
+    }
+    .topBlock > .label_products > .block_item > .item_image > a > img {
+        max-height: 160px !important;
+    }
+
+    /* новые поступления */
+    .btn-buy {
+        width: 80%;
+    }
+
+    /* корзина */
+    .jshop, form {
+        font-size: 0.7rem;
+    }
+    .btn-success {
+        width: 80% !important;
+    }
+    .back_to_shop {
+        margin-right: 0 !important;
+    }
+    .btn-group {
+        width: 100% !important;
     }
 }
