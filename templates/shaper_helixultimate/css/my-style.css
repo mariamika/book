@@ -903,7 +903,6 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
         max-height: 200px !important;
         display: inline-block;
         overflow: hidden;
-        /*padding: 5px;*/
     }
     .jshop_prod_cart .jshop_img_description_center, .table th:first-child {
         display: none;
@@ -943,13 +942,13 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
     .jshop, form {
         font-size: 0.7rem;
     }
-    .btn-success {
+    .jshop > form > .checkout > .btn-group > .btn-success {
         width: 80% !important;
     }
-    .back_to_shop {
+    .jshop > form > .checkout > .btn-group > .back_to_shop {
         margin-right: 0 !important;
     }
-    .btn-group {
+    .jshop > form > .checkout > .btn-group {
         width: 100% !important;
     }
 }

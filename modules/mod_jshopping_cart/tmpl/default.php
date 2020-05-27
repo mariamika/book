@@ -18,7 +18,6 @@
 <!--</div>-->
 
 <div id="jshop_module_cart" class="my-cart">
-
     <a href="<?php print SEFLink('index.php?option=com_jshopping&controller=cart&task=view', 1) ?>">
         <div>
             <i class="fa fa-shopping-cart fa-2x" aria-hidden="true">
