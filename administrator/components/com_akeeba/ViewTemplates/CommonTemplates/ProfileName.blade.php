@@ -6,9 +6,9 @@
  */
 
 // Protect from unauthorized access
-defined('_JEXEC') or die();
+defined('_JEXEC') || die();
 ?>
 <div class="akeeba-block--info">
 	<strong>@lang('COM_AKEEBA_CPANEL_PROFILE_TITLE')</strong>:
-	#{{{ (int)($this->profileid) }}} {{{ $this->profilename }}}
+	#{{{ (int)($this->profileId) }}} {{{ $this->profileName }}}
 </div>

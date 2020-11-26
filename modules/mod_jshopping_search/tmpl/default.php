@@ -18,4 +18,4 @@ function isEmptyValue(value){
 <?php if ($adv_search) {?>
 <a href = "<?php print $adv_search_link?>"><?php print _JSHOP_ADVANCED_SEARCH?></a>
 <?php } ?>
-</form>
+</form> 

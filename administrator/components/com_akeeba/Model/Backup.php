@@ -8,20 +8,24 @@
 namespace Akeeba\Backup\Admin\Model;
 
 // Protect from unauthorized access
-defined('_JEXEC') or die();
+defined('_JEXEC') || die();
 
 use Akeeba\Engine\Base\Part;
 use Akeeba\Engine\Factory;
 use Akeeba\Engine\Platform;
 use Akeeba\Engine\Util\PushMessages;
 use Closure;
+use DateTimeZone;
+use DirectoryIterator;
 use Exception;
 use FOF30\Date\Date;
 use FOF30\Model\Model;
+use FOF30\Timer\Timer;
 use JDatabaseDriver;
 use JLoader;
-use JText;
+use Joomla\CMS\Language\Text;
 use Psr\Log\LogLevel;
+use RuntimeException;
 
 /**
  * Backup model. Handles the server-side logic of interfacing with the backup engine (Akeeba Engine)
@@ -98,31 +102,20 @@ class Backup extends Model
 		// Use the default description if none specified
 		if (empty($description))
 		{
-			JLoader::import('joomla.utilities.date');
-			$dateNow  = new Date();
-			$timezone = $this->container->platform->getConfig()->get('offset', 'UTC');
-
-			if (!$this->getContainer()->platform->isCli())
-			{
-				$user = $this->container->platform->getUser();
-
-				if (!$user->guest)
-				{
-					$timezone = $user->getParam('timezone', $timezone);
-				}
-			}
-
-			$tz = new \DateTimeZone($timezone);
-			$dateNow->setTimezone($tz);
-			$description =
-				JText::_('COM_AKEEBA_BACKUP_DEFAULT_DESCRIPTION') . ' ' .
-				$dateNow->format(JText::_('DATE_FORMAT_LC2'), true);
+			$description = $this->getDefaultDescription();
 		}
 
 		// Try resetting the engine
-		Factory::resetState([
-			'maxrun' => 0,
-		]);
+		try
+		{
+			Factory::resetState([
+				'maxrun' => 0,
+			]);
+		}
+		catch (Exception $e)
+		{
+			// This will die if the output directory is invalid. Let it die, then.
+		}
 
 		// Remove any stale memory files left over from the previous step
 		if (empty($tag))
@@ -170,7 +163,7 @@ class Backup extends Model
 					'Domain'   => 'init',
 					'Step'     => '',
 					'Substep'  => '',
-					'Error'    => 'Failed configuration check Q' . $checkItem['code'] . ': ' . $checkItem['description'] . '. Please refer to https://www.akeebabackup.com/documentation/warnings/q' . $checkItem['code'] . '.html for more information and troubleshooting instructions.',
+					'Error'    => 'Failed configuration check Q' . $checkItem['code'] . ': ' . $checkItem['description'] . '. Please refer to https://www.akeeba.com/documentation/warnings/q' . $checkItem['code'] . '.html for more information and troubleshooting instructions.',
 					'Warnings' => [],
 					'Progress' => 0,
 				];
@@ -200,6 +193,18 @@ class Backup extends Model
 		$kettenrad->setup($options);
 
 		$this->setState('backupid', $backupId);
+
+		/**
+		 * Convert log files in the backup output directory
+		 *
+		 * This removes the obsolete, default log files (akeeba.(backend|frontend|cli|json).log and converts the old .log
+		 * files into their .php counterparts.
+		 *
+		 * We are doing this when loading the the Control Panel page but ALSO when taking a new backup because some
+		 * people might be installing updates and taking backups automatically, without visiting the Control Panel
+		 * except in rare cases.
+		 */
+		$this->convertLogFiles(3);
 
 		/**
 		 * We need to run tick() twice in the first backup step.
@@ -244,7 +249,7 @@ class Backup extends Model
 		{
 			Factory::saveState($tag, $backupId);
 		}
-		catch (\RuntimeException $e)
+		catch (RuntimeException $e)
 		{
 			$ret_array['Error'] = $e->getMessage();
 		}
@@ -337,7 +342,7 @@ class Backup extends Model
 			$kettenrad->tick();
 			$ret_array = $kettenrad->getStatusArray();
 		}
-		catch (\Exception $e)
+		catch (Exception $e)
 		{
 			$ret_array['Error'] = $e->getMessage();
 		}
@@ -349,7 +354,7 @@ class Backup extends Model
 				Factory::saveState($tag, $backupId);
 			}
 		}
-		catch (\RuntimeException $e)
+		catch (RuntimeException $e)
 		{
 			$ret_array['Error'] = $e->getMessage();
 		}
@@ -420,6 +425,91 @@ class Backup extends Model
 	}
 
 	/**
+	 * Convert the old, plaintext log files (.log) into their .log.php counterparts.
+	 *
+	 * @param   int  $timeOut  Maximum time, in seconds, to spend doing this conversion.
+	 *
+	 * @return  void
+	 *
+	 * @since   7.0.3
+	 */
+	public function convertLogFiles($timeOut = 10)
+	{
+		$registry = Factory::getConfiguration();
+		$logDir   = $registry->get('akeeba.basic.output_directory', '[DEFAULT_OUTPUT]', true);
+
+		$timer = new Timer($timeOut, 75);
+
+		// Part I. Remove these obsolete files first
+		$killFiles = [
+			'akeeba.log',
+			'akeeba.backend.log',
+			'akeeba.frontend.log',
+			'akeeba.cli.log',
+			'akeeba.json.log',
+		];
+
+		foreach ($killFiles as $fileName)
+		{
+			$path = $logDir . '/' . $fileName;
+
+			if (@is_file($path))
+			{
+				@unlink($path);
+			}
+		}
+
+		if ($timer->getTimeLeft() <= 0.01)
+		{
+			return;
+		}
+
+		// Part II. Convert .log files.
+		try
+		{
+			$di = new DirectoryIterator($logDir);
+		}
+		catch (Exception $e)
+		{
+			return;
+		}
+
+		foreach ($di as $file)
+		{
+
+			try
+			{
+				if (!$file->isFile())
+				{
+					continue;
+				}
+				$baseName = $file->getFilename();
+				if (substr($baseName, 0, 7) !== 'akeeba.')
+				{
+					continue;
+				}
+				if (substr($baseName, -4) !== '.log')
+				{
+					continue;
+				}
+				$this->convertLogFile($file->getPathname());
+				if ($timer->getTimeLeft() <= 0.01)
+				{
+					return;
+				}
+			}
+			catch (Exception $e)
+			{
+				/**
+				 * Someone did something stupid, like using the site's root as the backup output directory while having
+				 * an open_basedir restriction. Sorry, mate, you get insecure junk. We had warned you. You didn't heed
+				 * the warning. That's your problem now.
+				 */
+			}
+		}
+	}
+
+	/**
 	 * Get the profile used to take the last backup for the specified tag
 	 *
 	 * @param   string  $tag       The backup tag a.k.a. backup origin (backend, frontend, json, ...)
@@ -461,6 +551,73 @@ class Backup extends Model
 
 		// Else, return the default backup profile
 		return 1;
+	}
+
+	/**
+	 * Converts a log file from .log to .log.php
+	 *
+	 * @param   string  $filePath
+	 *
+	 * @return  void
+	 *
+	 * @since   7.0.3
+	 */
+	protected function convertLogFile($filePath)
+	{
+		// The name of the converted log file is the same with the extension .php appended to it.
+		$newFile = $filePath . '.php';
+
+		// If the new log file exists I should return immediately
+		if (@file_exists($newFile))
+		{
+			return;
+		}
+
+		// Try to open the converted log file (.log.php)
+		$fp = @fopen($newFile, 'wb');
+
+		if ($fp === false)
+		{
+			return;
+		}
+
+		// Try to open the source log file (.log)
+		$sourceFP = @fopen($filePath, 'rb');
+
+		if ($sourceFP === false)
+		{
+			@fclose($fp);
+
+			return;
+		}
+
+		// Write the die statement to the source log file
+		fwrite($fp, '<' . '?' . 'php die(); ' . '?' . ">\n");
+
+		// Copy data, 512KB at a time
+		while (!feof($sourceFP))
+		{
+			$chunk = @fread($sourceFP, 524288);
+
+			if ($chunk === false)
+			{
+				break;
+			}
+
+			$result = fwrite($fp, $chunk);
+
+			if ($result === false)
+			{
+				break;
+			}
+		}
+
+		// Close both files
+		@fclose($sourceFP);
+		@fclose($fp);
+
+		// Delete the original (.log) file
+		@unlink($filePath);
 	}
 
 	/**
@@ -529,4 +686,59 @@ class Backup extends Model
 
 		return $backupId;
 	}
+
+	/**
+	 * Get the default backup description.
+	 *
+	 * The default description is "Backup taken on DATE TIME" where DATE TIME is the current timestamp in the most
+	 * specific timezone. The timezone order, from least to most specific, is:
+	 * * UTC (fallback)
+	 * * Server Timezone from Joomla's Global Configuration
+	 * * Timezone from the current user's profile (only applicable to backend backups)
+	 * * Forced backup timezone
+	 *
+	 * @param   string  $format  Date and time format. Default: DATE_FORMAT_LC2 plus the abbreviated timezone
+	 *
+	 * @return  string
+	 */
+	public function getDefaultDescription(string $format = ''): string
+	{
+		// If no date format is specified we use DATE_FORMAT_LC2 plus the abbreviated timezone
+		if (empty($format))
+		{
+			$format = Text::_('DATE_FORMAT_LC2') . ' T';
+		}
+
+		// Get the most specific Joomla timezone (UTC, overridden by server timezone, overridden by user timezone)
+		$joomlaTimezone = $this->container->platform->getConfig()->get('offset', 'UTC');
+
+		if (!$this->getContainer()->platform->isCli())
+		{
+			$user = $this->container->platform->getUser();
+
+			if (!$user->guest)
+			{
+				$joomlaTimezone = $user->getParam('timezone', $joomlaTimezone);
+			}
+		}
+
+		$timezone = $joomlaTimezone;
+
+		// The forced timezone overrides everything else
+		$forcedTZ = Platform::getInstance()->get_platform_configuration_option('forced_backup_timezone', 'AKEEBA/DEFAULT');
+
+		if (!empty($forcedTZ) && ($forcedTZ != 'AKEEBA/DEFAULT'))
+		{
+			$timezone = $forcedTZ;
+		}
+
+		// Convert the current date and time to the selected timezone
+		$dateNow = new Date();
+		$tz      = new DateTimeZone($timezone);
+
+		$dateNow->setTimezone($tz);
+
+		return Text::_('COM_AKEEBA_BACKUP_DEFAULT_DESCRIPTION') . ' ' . $dateNow->format($format, true);
+	}
+
 }

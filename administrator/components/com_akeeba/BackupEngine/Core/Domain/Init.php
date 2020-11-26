@@ -9,7 +9,7 @@
 
 namespace Akeeba\Engine\Core\Domain;
 
-
+defined('AKEEBAENGINE') || die();
 
 use Akeeba\Engine\Base\Part;
 use Akeeba\Engine\Factory;
@@ -330,7 +330,7 @@ class Init extends Part
 		Factory::getLog()->info("Loaded profile #$profile_id");
 
 		// Get archive name
-		list($relativeArchiveName, $absoluteArchiveName) = $this->getArchiveName();
+		[$relativeArchiveName, $absoluteArchiveName] = $this->getArchiveName();
 
 		// ==== Stats initialisation ===
 		$origin     = Platform::getInstance()->get_backup_origin(); // Get backup origin
@@ -432,16 +432,54 @@ class Init extends Part
 		$templateName = $registry->get('akeeba.basic.archive_name');
 		Factory::getLog()->debug("Archive template name: $templateName");
 
+		/**
+		 * Security: Protect archives in the default backup output directory
+		 *
+		 * If the configured backup output directory is the same as the default backup output directory the following
+		 * actions are taken:
+		 *
+		 * 1. The backup archive name must include [RANDOM]. If it doesn't, '-[RANDOM]' will be appended to it.
+		 * 2. We make sure that the direct web access blocking files .htaccess, web.config, index.html, index.htm and
+		 *    index.php exist in that directory. If they do not they will be forcibly added.
+		 */
+		$configuredOutputPath = $registry->get('akeeba.basic.output_directory');
+		$stockDirs            = Platform::getInstance()->get_stock_directories();
+		$defaultOutputPath    = $stockDirs['[DEFAULT_OUTPUT]'];
+		$fsUtils              = Factory::getFilesystemTools();
+
+		if (@realpath($configuredOutputPath) === @realpath($defaultOutputPath))
+		{
+			$this->ensureHasRandom($templateName);
+
+			$fsUtils->ensureNoAccess($defaultOutputPath);
+		}
+
 		// Parse all tags
 		$fsUtils      = Factory::getFilesystemTools();
 		$templateName = $fsUtils->replace_archive_name_variables($templateName);
 
 		Factory::getLog()->debug("Expanded template name: $templateName");
 
-		$ds            = DIRECTORY_SEPARATOR;
 		$relative_path = $templateName . $extension;
-		$absolute_path = $fsUtils->TranslateWinPath($registry->get('akeeba.basic.output_directory') . $ds . $relative_path);
+		$absolute_path = $fsUtils->TranslateWinPath($configuredOutputPath . DIRECTORY_SEPARATOR . $relative_path);
 
 		return [$relative_path, $absolute_path];
+	}
+
+	/**
+	 * Make sure that the archive template name contains the [RANDOM] variable.
+	 *
+	 * @param   string  $templateName
+	 *
+	 * @return void
+	 */
+	protected function ensureHasRandom(&$templateName)
+	{
+		if (strpos($templateName, '[RANDOM]') !== false)
+		{
+			return;
+		}
+
+		$templateName .= '-[RANDOM]';
 	}
 }

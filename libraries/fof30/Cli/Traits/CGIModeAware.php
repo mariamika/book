@@ -1,11 +1,13 @@
 <?php
 /**
- * @package     FOF
- * @copyright   Copyright (c)2010-2019 Nicholas K. Dionysopoulos / Akeeba Ltd
- * @license     GNU GPL version 2 or later
+ * @package   FOF
+ * @copyright Copyright (c)2010-2020 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @license   GNU General Public License version 2, or later
  */
 
 namespace FOF30\Cli\Traits;
+
+defined('_JEXEC') || die;
 
 /**
  * CGI Mode detection and workaround

@@ -21,14 +21,14 @@
 body{font-family: 'PT Sans', sans-serif;font-style: normal;}
 .logo-image {height:100px;}.logo-image-phone {height:100px;}#sp-inform-top{ background-color:#252525;color:#ffffff;padding:10px; }#sp-inform-top a{color:#a2a2a2;}#sp-inform-top a:hover{color:#ffffff;}#sp-logozone{ background-color:#fffaf0; }
 	</style>
-	<script type="application/json" class="joomla-script-options new">{"csrf.token":"3f91897866e8f7663c840cf8bdd9c73c","system.paths":{"root":"","base":""}}</script>
+	<script type="application/json" class="joomla-script-options new">{"csrf.token":"248a2e23280cc86783b465ca4712190f","system.paths":{"root":"","base":""}}</script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" type="text/javascript"></script>
 	<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js" type="text/javascript"></script>
-	<script src="/plugins/system/jqueryeasy/jquerynoconflict.js?21a438f957571ee5665a5d5d9f3a6523" type="text/javascript"></script>
+	<script src="/plugins/system/jqueryeasy/jquerynoconflict.js?f5902e2a4c02377186abd8a974c114bf" type="text/javascript"></script>
 	<script src="/modules/mod_djimageslider/assets/js/slider.js?v=4.0.0" type="text/javascript"></script>
 	<script src="/cache/com_templates/templates/shaper_helixultimate/5e09ec8111e18fa5b8dbf956a44e6c87.js" type="text/javascript"></script>
-	<script src="/media/system/js/mootools-core.js?21a438f957571ee5665a5d5d9f3a6523" type="text/javascript"></script>
-	<script src="/media/system/js/core.js?21a438f957571ee5665a5d5d9f3a6523" type="text/javascript"></script>
+	<script src="/media/system/js/mootools-core.js?f5902e2a4c02377186abd8a974c114bf" type="text/javascript"></script>
+	<script src="/media/system/js/core.js?f5902e2a4c02377186abd8a974c114bf" type="text/javascript"></script>
 	<script src="http://paragraf/components/com_jshopping/js/jquery/jquery.media.js" type="text/javascript"></script>
 	<script src="http://paragraf/components/com_jshopping/js/functions.js" type="text/javascript"></script>
 	<script src="http://paragraf/components/com_jshopping/js/validateForm.js" type="text/javascript"></script>
@@ -56,7 +56,16 @@ function isEmptyValue(value){
 <input type = "text" class = "inputbox my-input-search" name = "search" id = "jshop_search" value = "" />
 <input class="btn my-btn-search" type = "submit" value = "Найти" /></div>
 <a href = "/component/jshopping/search/?Itemid=0">Расширенный поиск</a>
-</form></div></div></div></div><div id="sp-position1" class="col-lg-1 "><div class="sp-column "><jot position1 s style="sp_xhtml"></jot><div class="sp-module "><div class="sp-module-content"><!--<div id = "jshop_module_cart">-->
+</form> </div></div><div class="sp-module "><div class="sp-module-content">
+<div class="custom"  >
+	<div class="linkForSearch">
+<a href="/component/jshopping/search/?Itemid=0">
+<div class="mobileSearchWrapper"><img class="pictureSearchForMobile" src="/images/data/icon-search/magnifier.svg" alt="mobile-search" />
+<p class="titleForSearchMobile">Поиск</p>
+</div>
+</a>
+</div></div>
+</div></div></div></div><div id="sp-position1" class="col-lg-1 "><div class="sp-column "><jot position1 s style="sp_xhtml"></jot><div class="sp-module "><div class="sp-module-content"><!--<div id = "jshop_module_cart">-->
 <!--<table width = "100%" >-->
 <!--<tr>-->
 <!--    <td>-->
@@ -619,30 +628,6 @@ function isEmptyValue(value){
 <div class="topBlock"><div class="label_products">
     <div class="block_item">
                 <div class="item_image">
-            <a href="/component/jshopping/product/view/5/1?Itemid=0">               
-                <img src = "http://paragraf/components/com_jshopping/files/img_products/thumb_68173.jpg" alt="" />
-            </a>
-        </div>
-                <div class="item_name">
-            <a href="/component/jshopping/product/view/5/1?Itemid=0">Аннибал</a>
-        </div>
-               <div class="item_price">
-           500.00 руб.       </div>
-           </div>       
-    <div class="block_item">
-                <div class="item_image">
-            <a href="/component/jshopping/product/view/5/13?Itemid=0">               
-                <img src = "http://paragraf/components/com_jshopping/files/img_products/thumb_75115.jpg" alt="" />
-            </a>
-        </div>
-                <div class="item_name">
-            <a href="/component/jshopping/product/view/5/13?Itemid=0">Библиотека Великих Писателей под редакцией профессора С. Венгерова. Пушкинъ. В 6 томах.</a>
-        </div>
-               <div class="item_price">
-           70000.00 руб.       </div>
-           </div>       
-    <div class="block_item">
-                <div class="item_image">
             <a href="/component/jshopping/product/view/5/4?Itemid=0">               
                 <img src = "http://paragraf/components/com_jshopping/files/img_products/thumb_75042.jpg" alt="" />
             </a>
@@ -724,6 +709,30 @@ function isEmptyValue(value){
         </div>
                <div class="item_price">
            180.00 руб.       </div>
+           </div>       
+    <div class="block_item">
+                <div class="item_image">
+            <a href="/component/jshopping/product/view/5/9?Itemid=0">               
+                <img src = "http://paragraf/components/com_jshopping/files/img_products/thumb_75037.jpg" alt="" />
+            </a>
+        </div>
+                <div class="item_name">
+            <a href="/component/jshopping/product/view/5/9?Itemid=0">Паровоз: Конструкция, теория, управление и ремонт. В 2-х томах.</a>
+        </div>
+               <div class="item_price">
+           50000.00 руб.       </div>
+           </div>       
+    <div class="block_item">
+                <div class="item_image">
+            <a href="/component/jshopping/product/view/5/5?Itemid=0">               
+                <img src = "http://paragraf/components/com_jshopping/files/img_products/thumb_20756.jpg" alt="" />
+            </a>
+        </div>
+                <div class="item_name">
+            <a href="/component/jshopping/product/view/5/5?Itemid=0">Полвека для книги.</a>
+        </div>
+               <div class="item_price">
+           40000.00 руб.       </div>
            </div>       
 </div></div>
 <p> </p>	</div>

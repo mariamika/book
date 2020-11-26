@@ -8,7 +8,7 @@
 /** @var $this \Akeeba\Backup\Admin\View\ControlPanel\Html */
 
 // Protect from unauthorized access
-defined('_JEXEC') or die();
+defined('_JEXEC') || die();
 
 // Only show in the Core version with a 10% probability
 if (AKEEBA_PRO) return;
@@ -27,15 +27,13 @@ if (time() - $this->lastUpsellDismiss < 1296000) return;
 
     <p>@lang('COM_AKEEBA_CONTROLPANEL_HEAD_LBL_PROUPSELL_1')</p>
 
-    @if (time() < 1583013600)
-        <p class="akeeba-block--info">@sprintf('COM_AKEEBA_CONTROLPANEL_HEAD_LBL_DISCOUNT',
-            base64_decode('SVdBTlRJVEFMTA=='))</p>
-    @endif
+    <p class="akeeba-block--info">@sprintf('COM_AKEEBA_CONTROLPANEL_HEAD_LBL_DISCOUNT',
+        base64_decode('SVdBTlRJVEFMTA=='))</p>
 
     <p>@lang('COM_AKEEBA_CONTROLPANEL_HEAD_LBL_PROUPSELL_2')</p>
 
     <p>
-        <a href="https://www.akeebabackup.com/landing/akeeba-backup.html"
+        <a href="https://www.akeeba.com/landing/akeeba-backup.html"
            class="akeeba-btn--large--primary">
             <span class="aklogo-backup-j"></span>
             @lang('COM_AKEEBA_CONTROLPANEL_BTN_LEARNMORE')

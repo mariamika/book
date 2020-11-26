@@ -1,13 +1,13 @@
 <?php
 /**
- * @package     FOF
- * @copyright   Copyright (c)2010-2019 Nicholas K. Dionysopoulos / Akeeba Ltd
- * @license     GNU GPL version 2 or later
+ * @package   FOF
+ * @copyright Copyright (c)2010-2020 Nicholas K. Dionysopoulos / Akeeba Ltd
+ * @license   GNU General Public License version 2, or later
  */
 
 namespace FOF30\View\Compiler;
 
-defined('_JEXEC') or die;
+defined('_JEXEC') || die;
 
 interface CompilerInterface
 {
@@ -27,7 +27,7 @@ interface CompilerInterface
 	 *
 	 * @return mixed
 	 */
-	public function compile($path, array $forceParams = array());
+	public function compile($path, array $forceParams = []);
 
 	/**
 	 * Returns the file extension supported by this compiler

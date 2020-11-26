@@ -8,18 +8,22 @@
 namespace Akeeba\Backup\Admin\View\Manage;
 
 // Protect from unauthorized access
-defined('_JEXEC') or die();
+defined('_JEXEC') || die();
 
 use Akeeba\Backup\Admin\Model\Profiles;
 use Akeeba\Backup\Admin\Model\Statistics;
+use Akeeba\Engine\Factory;
 use Akeeba\Engine\Platform;
 use DateTimeZone;
+use Exception;
 use FOF30\Date\Date;
 use FOF30\View\DataView\Html as BaseView;
-use JHtml;
-use JLoader;
-use JText;
-use JUri;
+use Joomla\CMS\Factory as JFactory;
+use Joomla\CMS\HTML\HTMLHelper as JHtml;
+use Joomla\CMS\Language\Text as JText;
+use Joomla\CMS\Pagination\Pagination;
+use Joomla\CMS\Uri\Uri as JUri;
+use stdClass;
 
 /**
  * View controller for the Backup Now page
@@ -69,6 +73,13 @@ class Html extends BaseView
 	public $profilesList = [];
 
 	/**
+	 * List of frozen options for JHtmlSelect
+	 *
+	 * @var  array
+	 */
+	public $frozenList = [];
+
+	/**
 	 * Order direction, ASC/DESC
 	 *
 	 * @var  string
@@ -111,6 +122,13 @@ class Html extends BaseView
 	public $fltProfile = '';
 
 	/**
+	 * Frozen records filter
+	 *
+	 * @var string
+	 */
+	public $fltFrozen = '';
+
+	/**
 	 * List of records to display
 	 *
 	 * @var  array
@@ -120,7 +138,7 @@ class Html extends BaseView
 	/**
 	 * Pagination object
 	 *
-	 * @var \JPagination
+	 * @var Pagination
 	 */
 	public $pagination = null;
 
@@ -159,15 +177,12 @@ class Html extends BaseView
 	 *
 	 * @return  void
 	 *
-	 * @throws  \Exception
+	 * @throws  Exception
 	 */
 	public function onBeforeMain()
 	{
 		// Load custom Javascript for this page
-		$this->addJavascriptFile('media://com_akeeba/js/Manage.min.js');
-
-		// Load core classes used in the view template
-		JLoader::import('joomla.utilities.date');
+		$this->container->template->addJS('media://com_akeeba/js/Manage.min.js', true, false, $this->container->mediaVersion);
 
 		$user              = $this->container->platform->getUser();
 		$this->permissions = [
@@ -183,45 +198,8 @@ class Html extends BaseView
 		$this->enginesPerProfile = $enginesPerPprofile;
 
 		// "Show warning first" download button.
-		$confirmationText = JText::_('COM_AKEEBA_BUADMIN_LOG_DOWNLOAD_CONFIRM', true, false);
-		$confirmationText = str_replace('\\\\n', '\\n', $confirmationText);
-		$baseURI          = JUri::base();
-		$js               = <<<JS
-
-;// This comment is intentionally put here to prevent badly written plugins from causing a Javascript error
-// due to missing trailing semicolon and/or newline in their code.
-function confirmDownloadButton()
-{
-	var answer = confirm("$confirmationText");
-	if (answer)
-	{
-		submitbutton('download')
-	}
-}
-
-function confirmDownload(id, part)
-{
-	var answer = confirm("$confirmationText");
-	var newURL = '$baseURI';
-	if (answer)
-	{
-		newURL += 'index.php?option=com_akeeba&view=Manage&task=download&id='+id;
-		
-		if (part != '')
-		{
-			newURL += '&part=' + part
-		}
-		
-		window.location = newURL;
-	}
-}
-
-akeeba.System.documentReady(function(){
-	akeeba.Tooltip.enableFor(document.querySelectorAll('.akeebaCommentPopover'), false);
-});
-
-JS;
-		$this->addJavascriptInline($js);
+		JText::script('COM_AKEEBA_BUADMIN_LOG_DOWNLOAD_CONFIRM', false);
+		$this->container->platform->addScriptOptions('akeeba.Manage.baseURI', JUri::base());
 
 		if (version_compare(JVERSION, '3.999.999', 'le'))
 		{
@@ -240,7 +218,9 @@ JS;
 		$this->fltTo            = $platform->getUserStateFromRequest($hash . 'filter_to', 'to', $input, '');
 		$this->fltOrigin        = $platform->getUserStateFromRequest($hash . 'filter_origin', 'origin', $input, '');
 		$this->fltProfile       = $platform->getUserStateFromRequest($hash . 'filter_profile', 'profile', $input, '');
-		$this->lists            = new \stdClass();
+		$this->fltFrozen        = $platform->getUserStateFromRequest($hash . 'filter_frozen', 'frozen', $input, '');
+
+		$this->lists            = new stdClass();
 		$this->lists->order     = $platform->getUserStateFromRequest($hash . 'filter_order', 'filter_order', $input, 'backupstart');
 		$this->lists->order_Dir = $platform->getUserStateFromRequest($hash . 'filter_order_Dir', 'filter_order_Dir', $input, 'DESC');
 
@@ -256,7 +236,7 @@ JS;
 
 		if (!$this->container->platform->isCli() && class_exists('JFactory'))
 		{
-			$app = \JFactory::getApplication();
+			$app = JFactory::getApplication();
 
 			if (method_exists($app, 'get'))
 			{
@@ -287,6 +267,12 @@ JS;
 		$this->profilesList = $profilesList; // Profiles list for select box
 		$this->itemCount    = count($this->items);
 		$this->pagination   = $model->getPagination($filters); // Pagination object
+
+		$this->frozenList = [
+			JHtml::_('select.option', '', '–' . JText::_('COM_AKEEBA_BUADMIN_LABEL_FROZEN_SELECT') . '–'),
+			JHtml::_('select.option', '1', JText::_('COM_AKEEBA_BUADMIN_LABEL_FROZEN_FROZEN')),
+			JHtml::_('select.option', '2', JText::_('COM_AKEEBA_BUADMIN_LABEL_FROZEN_UNFROZEN')),
+		];
 
 		if ($this->lists->order_Dir)
 		{
@@ -358,7 +344,7 @@ JS;
 
 		if (version_compare(PHP_VERSION, '5.6.0', 'lt'))
 		{
-			return number_format($sizeInBytes / pow(1024, $unit), $decimals, $decSeparator, $thousandsSeparator) . ' ' . $units[$unit];
+			return number_format($sizeInBytes / 1024 ** $unit, $decimals, $decSeparator, $thousandsSeparator) . ' ' . $units[$unit];
 		}
 
 		return number_format($sizeInBytes / (1024 ** $unit), $decimals, $decSeparator, $thousandsSeparator) . ' ' . $units[$unit];
@@ -378,7 +364,7 @@ JS;
 		if (!is_array($backup_types))
 		{
 			// Load a mapping of backup types to textual representation
-			$scripting    = \Akeeba\Engine\Factory::getEngineParamsProvider()->loadScripting();
+			$scripting    = Factory::getEngineParamsProvider()->loadScripting();
 			$backup_types = [];
 			foreach ($scripting['scripts'] as $key => $data)
 			{
@@ -426,10 +412,6 @@ JS;
 
 			case 'xmlrpc':
 				$originIcon = 'akion-code';
-				break;
-
-			case 'restorepoint':
-				$originIcon = 'akion-refresh';
 				break;
 
 			case 'lazy':
@@ -598,7 +580,6 @@ JS;
 		}
 		elseif ($this->fltTo)
 		{
-			JLoader::import('joomla.utilities.date');
 			$toDate = new Date($this->fltTo);
 			$to     = $toDate->format('Y-m-d') . ' 23:59:59';
 
@@ -608,6 +589,7 @@ JS;
 				'value'   => $to,
 			];
 		}
+
 		if ($this->fltOrigin)
 		{
 			$filters[] = [
@@ -616,6 +598,7 @@ JS;
 				'value'   => $this->fltOrigin,
 			];
 		}
+
 		if ($this->fltProfile)
 		{
 			$filters[] = [
@@ -625,12 +608,22 @@ JS;
 			];
 		}
 
-		$filters[] = [
-			'field'   => 'tag',
-			'operand' => '<>',
-			'value'   => 'restorepoint',
-		];
-
+		if ($this->fltFrozen == 1)
+		{
+			$filters[] = [
+				'field'   => 'frozen',
+				'operand' => '=',
+				'value'   => 1,
+			];
+		}
+		elseif ($this->fltFrozen == 2)
+		{
+			$filters[] = [
+				'field'   => 'frozen',
+				'operand' => '=',
+				'value'   => 0,
+			];
+		}
 
 		if (empty($filters))
 		{

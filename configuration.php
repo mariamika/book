@@ -5,7 +5,7 @@ class JConfig {
 	public $display_offline_message = '1';
 	public $offline_image = '';
 	public $sitename = 'Магазин букинистической и антикварной книги "Параграф"';
-	public $editor = 'tinymce';
+	public $editor = 'none';
 	public $captcha = '0';
 	public $list_limit = '50';
 	public $access = '1';
@@ -41,7 +41,7 @@ class JConfig {
 	public $smtphost = 'smtp.yandex.com';
 	public $smtpsecure = 'ssl';
 	public $smtpport = '465';
-	public $caching = '1';
+	public $caching = '0';
 	public $cache_handler = 'file';
 	public $cachetime = '1';
 	public $cache_platformprefix = '0';

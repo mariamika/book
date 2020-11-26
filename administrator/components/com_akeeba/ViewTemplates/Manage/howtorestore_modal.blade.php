@@ -6,7 +6,7 @@
  */
 
 // Protect from unauthorized access
-defined('_JEXEC') or die();
+defined('_JEXEC') || die();
 
 /** @var  \Akeeba\Backup\Admin\View\Manage\Html $this */
 
@@ -18,39 +18,23 @@ if (defined('AKEEBA_VIEW_JAVASCRIPT_HOWTORESTORE'))
 
 define('AKEEBA_VIEW_JAVASCRIPT_HOWTORESTORE', 1);
 
-$js = <<< JS
-
-;// This comment is intentionally put here to prevent badly written plugins from causing a Javascript error
-// due to missing trailing semicolon and/or newline in their code.
-akeeba.System.documentReady(function(){
-	setTimeout(function(){
-		akeeba.System.howToRestoreModal = akeeba.Modal.open({
-		inherit: '#akeeba-config-howtorestore-bubble',
-		width: '80%'
-	});
-	}, 500);
-});
-
-JS;
+$this->container->platform->getDocument()->addScriptOptions('akeeba.Manage.ShowHowToRestoreModal', 1);
 
 ?>
-@inlineJs($js)
-
 <div id="akeeba-config-howtorestore-bubble">
     <div class="akeeba-renderer-fef">
         <h4>@lang('COM_AKEEBA_BUADMIN_LABEL_HOWDOIRESTORE_LEGEND')</h4>
         <p>
-            @sprintf('COM_AKEEBA_BUADMIN_LABEL_HOWDOIRESTORE_TEXT_' . (AKEEBA_PRO ? 'PRO' : 'CORE'), 'https://www.akeebabackup.com/videos/1212-akeeba-backup-core/1618-abtc04-restore-site-new-server.html', 'index.php?option=com_akeeba&view=Transfer', 'https://www.akeebabackup.com/latest-kickstart-core.zip')
+            @sprintf('COM_AKEEBA_BUADMIN_LABEL_HOWDOIRESTORE_TEXT_' . (AKEEBA_PRO ? 'PRO' : 'CORE'), 'http://akee.ba/abrestoreanywhere', 'index.php?option=com_akeeba&view=Transfer', 'https://www.akeeba.com/latest-kickstart-core.zip')
         </p>
         <p>
             @if (!AKEEBA_PRO)
-                @sprintf('COM_AKEEBA_BUADMIN_LABEL_HOWDOIRESTORE_TEXT_CORE_INFO_ABOUT_PRO', 'https://www.akeebabackup.com/products/akeeba-backup.html')
+                @sprintf('COM_AKEEBA_BUADMIN_LABEL_HOWDOIRESTORE_TEXT_CORE_INFO_ABOUT_PRO', 'https://www.akeeba.com/products/akeeba-backup.html')
             @endif
         </p>
 
         <div>
-            <a href="#" class="akeeba-btn--primary"
-               onclick="akeeba.System.howToRestoreModal.close(); document.getElementById('akeeba-config-howtorestore-bubble').style.display = 'none'">
+            <a class="akeeba-btn--primary" id="comAkeebaManageCloseHowToRestoreModal">
                 <span class="akion-close"></span>
                 @lang('COM_AKEEBA_BUADMIN_BTN_REMINDME')
             </a>

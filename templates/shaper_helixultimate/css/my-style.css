@@ -249,10 +249,13 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 
 /* laptop */
 @media (min-width: 1200px) {
+    /* на все страницы */
+    .linkForSearch {
+        display: none !important;
+    }
     /* главная страница */
     .logo-image {
-        width: 100%;
-        padding: 15px;
+        padding: 10px 0;
     }
     #sp-logozone {
         margin-top: 44px !important;
@@ -316,6 +319,10 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 
 /* планшет перевернутый в ширину */
 @media (max-width: 1199px) and (min-width: 992px) {
+    /* на все страницы */
+    .linkForSearch {
+        display: none !important;
+    }
     /* главная страница */
     #sp-top1 {
         width: 20%;
@@ -327,8 +334,7 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
         margin-left: -5px;
     }
     .logo-image {
-        width: 100%;
-        padding: 20px;
+        padding: 15px 0;
     }
     #slider-container117 {
         width: 85%;
@@ -417,6 +423,10 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 
 /* планшет в высоту*/
 @media (max-width: 991px) and (min-width: 768px) {
+    /* на все страницы */
+    .linkForSearch {
+        display: none !important;
+    }
     /* главная страница */
     #sp-top1 {
         width: 20%;
@@ -440,8 +450,7 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
         max-width: 12% !important;
     }
     .logo-image-phone {
-        width: 100%;
-        padding: 20px;
+        padding: 8px 0;
     }
     .my-input-search {
         width: 70% !important;
@@ -550,6 +559,37 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 
 /* перевернутый в ширину телефон */
 @media (max-width: 767px) and (min-width: 576px) {
+    /* на все страницы */
+    #sp-search .linkForSearch {
+        display: block;
+        float: right;
+    }
+    .mobileSearchWrapper {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+    .pictureSearchForMobile {
+        height: 18px;
+        margin-top: 12px;
+    }
+    .linkForSearch:hover .pictureSearchForMobile {
+        filter: sepia(1) saturate(24);
+    }
+    .titleForSearchMobile {
+        margin-top: 10px;
+        color: #2f2f63;
+    }
+    .linkForSearch:hover .titleForSearchMobile {
+        color: #f46140;
+    }
+    .js_search_gen .controls {
+        margin-left: 80px !important;
+    }
+    .search_wrap {
+        width: 40% !important;
+        margin-right: 8px;
+    }
     /* главная страница */
     #sp-inform-top {
         display: none;
@@ -567,24 +607,26 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
         margin-top: 0;
     }
     #sp-logo {
-        max-width: 50% !important;
-    }
-    .logo-image-phone {
-        height: 70px !important;
-        width: 100%;
-        padding: 10px;
+        max-width: 60% !important;
     }
     #sp-search {
+        max-width: 25% !important;
+    }
+    #sp-search .my-search{
         display: none;
     }
     #sp-position1 {
-        max-width: 50% !important;
+        max-width: 15% !important;
+    }
+    .logo-image-phone {
+        height: 75px !important;
+        padding: 10px 0;
     }
     .my-cart {
         margin-top: 0 !important;
     }
     #sp-menu {
-        margin-top: 25px;
+        margin-top: 30px;
         height: 60px;
     }
     #offcanvas-toggler {
@@ -728,34 +770,67 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 
 /* телефон в высоту */
 @media (max-width: 575px) {
+    /* на все страницы */
+    #sp-search .linkForSearch {
+        display: block;
+        float: right;
+    }
+    .mobileSearchWrapper {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+    .pictureSearchForMobile {
+        height: 18px;
+        margin-top: 12px;
+    }
+    .linkForSearch:hover .pictureSearchForMobile {
+        filter: sepia(1) saturate(24);
+    }
+    .titleForSearchMobile {
+        margin-top: 10px;
+        color: #2f2f63;
+    }
+    .linkForSearch:hover .titleForSearchMobile {
+        color: #f46140;
+    }
+    .js_search_gen .controls {
+        margin-left: 80px !important;
+    }
+    .search_wrap {
+        width: 40% !important;
+        margin-right: 8px;
+    }
     /* главная страница */
     #sp-logozone {
         margin-top: 0;
     }
     #sp-logo {
-        max-width: 70% !important;
+        max-width: 60% !important;
         margin-right: 0;
     }
     .logo-image-phone {
-        height: 70px !important;
-        width: 100%;
-        padding: 15px;
+        height: 75px !important;
+        padding: 10px 0;
     }
     #sp-search {
+        max-width: 25% !important;
+    }
+    #sp-search .my-search{
         display: none;
     }
     #sp-position1 {
-        max-width: 30% !important;
+        max-width: 15% !important;
     }
     #sp-inform-top {
         display: none;
     }
     #sp-menu {
-        margin-top: 25px;
+        margin-top: 30px;
         max-height: 60px;
     }
     #sp-component {
-        margin-top: 40px;
+        margin-top: 50px;
     }
     .my-cart {
         margin-top: 0 !important;
@@ -915,6 +990,21 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 }
 
 @media (max-width: 460px) {
+    /* на всех страницах */
+    #sp-logo {
+        max-width: 55% !important;
+    }
+    #sp-search {
+        max-width: 25% !important;
+    }
+    #sp-position1 {
+        max-width: 20% !important;
+    }
+    .search_wrap {
+        width: 50% !important;
+        margin-right: 8px;
+        padding-bottom: 10px;
+    }
     /* корзина */
     .jshop, form {
         font-size: 0.8rem;
@@ -925,6 +1015,32 @@ body #mxcpr,a[href="https://www.webdesigner-profi.de/"]{display:none!important}
 }
 
 @media (max-width: 370px) {
+    /* на всех страницах */
+    #sp-logo {
+        max-width: 60% !important;
+    }
+    #sp-search {
+        max-width: 15% !important;
+    }
+    #sp-position1 {
+        max-width: 20% !important;
+    }
+    .js_search_gen .controls {
+        margin-left: 60px !important;
+    }
+    #search_type_exact {
+        margin-left: 20px;
+    }
+    #search_type_all + .radiootstup {
+        margin-right: 80px;
+    }
+    .search_wrap > .search_date {
+        width: 175px;
+    }
+    .logo-image-phone {
+        height: 70px !important;
+        padding: 6px 0;
+    }
     /* главная */
     .topBlock > .label_products > .block_item > .item_image {
         height: 160px !important;
